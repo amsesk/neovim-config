@@ -8,5 +8,11 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'glepnir/zephyr-nvim'
     use 'jalvesaq/Nvim-R'
-    use 'gaalcaras/ncm-R'
+    use 'gaalcaras/ncm-R' 
+    use {'chamindra/marvim'}
+
+    -- use {'ms-jpq/coq_nvim', branch = 'coq'}
+    -- use {'ms-jpq/coq.artifacts', branch = "artifacts"}
+    -- use {'ms-jpq/coq.thirdparty', branch = "3p" }
+    -- use {'neovim/nvim-lspconfig'} 
 end)

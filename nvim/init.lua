@@ -11,8 +11,17 @@ function try_require(module_name)
         return nullmodule 
     end
 end
+
+-- If using coq completion
+--vim.g.coq_settings = { ["auto_start"] = "shut-up",
+--    ["display.pum.source_context"] = {'', ''}, 
+--}
+--require("coq")
+
 -- Packer plugins
 require('plugins').install()
+
+-- try_require'lspconfig'.r_language_server.setup{ log_level = 1}
 
 try_require'lualine'.setup {
     options = { theme = try_require'lualine.themes.horizon' },
