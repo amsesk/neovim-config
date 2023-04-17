@@ -20,6 +20,7 @@ end
 
 -- Packer plugins
 require('plugins').install()
+require('coc_config')
 
 -- try_require'lspconfig'.r_language_server.setup{ log_level = 1}
 
@@ -28,7 +29,7 @@ try_require'lualine'.setup {
 }
 try_require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "bash", "c", "lua", "vim", "help", "python", "r", "rust" },
+  ensure_installed = { "bash", "c", "lua", "vim", "vimdoc", "python", "r", "rust" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -68,6 +69,14 @@ try_require'nvim-treesitter.configs'.setup {
   },
 }
 
+--vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
+
+-- enable ncm2 for all buffers
+-- vim.api.nvim_create_autocmd("BufEnter", { command = "[[call ncm2#enable_for_buffer()]]" })
+
+--- IMPORTANT: :help Ncm2PopupOpen for more information
+--vim.o.completeopt = "noinsert,menuone,noselect"
+
 -- Nvim settings
 vim.o.number = true
 vim.o.softtabstop = 4
@@ -81,4 +90,6 @@ local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
 -- Nvim-R settings
 vim.api.nvim_set_var('R_assign', 0)
 vim.api.nvim_set_var('maplocalleader', "'")
+vim.api.nvim_set_var('R_external_term', 1)
+
 
