@@ -83,6 +83,7 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
+vim.o.cursorline = true
 
 -- Try to change the colorscheme, but do nothing if it fails
 local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
