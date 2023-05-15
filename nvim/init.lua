@@ -14,8 +14,7 @@ end
 
 -- If using coq completion
 --vim.g.coq_settings = { ["auto_start"] = "shut-up",
---    ["display.pum.source_context"] = {'', ''}, 
---}
+--    ["display.pum.source_context"] = {'', ''}, }
 --require("coq")
 
 -- Packer plugins
@@ -69,6 +68,61 @@ try_require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- Nvim-R settings
+vim.api.nvim_set_var('R_assign', 0)
+vim.api.nvim_set_var('maplocalleader', "'")
+vim.api.nvim_set_var('R_external_term', 0)
+
+-- Iron settings
+local view = try_require("iron.view")
+try_require("iron.core").setup {
+  config = {
+    -- Whether a repl should be discarded or not
+    scratch_repl = true,
+    -- Your repl definitions come here
+    repl_definition = {
+      sh = {
+        -- Can be a table or a function that
+        -- returns a table (see below)
+        command = {"zsh"}
+      }
+    },
+
+    repl_open_cmd = view.split.bot("35%"),
+    -- How the repl window will be displayed
+    -- See below for more information
+    -- repl_open_cmd = require('iron.view').bottom(10),
+  },
+  -- Iron doesn't set keymaps by default anymore.
+  -- You can set them here or manually add keymaps to the functions in iron.core
+  keymaps = {
+    send_motion = "<localleader>mm",
+    visual_send = "<space>sc",
+    send_file = "<space>sf",
+    send_line = "<localleader>dd",
+    send_mark = "<space>sm",
+    mark_motion = "<space>mc",
+    mark_visual = "<space>mc",
+    remove_mark = "<space>md",
+    cr = "<space>s<cr>",
+    interrupt = "<space>s<space>",
+    exit = "<space>sq",
+    clear = "<space>cl",
+  },
+  -- If the highlight is on, you can change how it looks
+  -- For the available options, check nvim_set_hl
+  highlight = {
+    italic = true
+  },
+  ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+}
+
+-- iron also has a list of commands, see :h iron-commands for all available commands
+vim.keymap.set('n', '<localleader>pf', '<cmd>IronRepl<cr>')
+vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
+vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
+vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
+
 --vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
 
 -- enable ncm2 for all buffers
@@ -84,13 +138,8 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
 vim.o.cursorline = true
+vim.o.cursorcolumn = false
 
 -- Try to change the colorscheme, but do nothing if it fails
 local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
-
--- Nvim-R settings
-vim.api.nvim_set_var('R_assign', 0)
-vim.api.nvim_set_var('maplocalleader', "'")
-vim.api.nvim_set_var('R_external_term', 1)
-
 
