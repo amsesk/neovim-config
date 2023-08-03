@@ -16,6 +16,21 @@ return require('packer').startup(function(use)
     use {'hkupty/iron.nvim'}
     use {'chentoast/marks.nvim'}
     use 'AlexvZyl/nordic.nvim'
+    
+    use 'anuvyklack/pretty-fold.nvim'
+
+    use {
+        'sudormrfbin/cheatsheet.nvim',
+        requires = {
+            {'nvim-telescope/telescope.nvim'},
+            {'nvim-lua/popup.nvim'},
+            {'nvim-lua/plenary.nvim'},
+	}
+    }
+    use {
+        'anuvyklack/fold-preview.nvim',
+        requires = 'anuvyklack/keymap-amend.nvim'
+    }
 
     -- use {'ms-jpq/coq_nvim', branch = 'coq'}
     -- use {'ms-jpq/coq.artifacts', branch = "artifacts"}
