@@ -176,5 +176,6 @@ vim.o.cursorline = true
 vim.o.cursorcolumn = false
 
 -- Try to change the colorscheme, but do nothing if it fails
-local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
+--local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
+local ok, _ = pcall(vim.cmd.colorscheme, 'nordic')
 
