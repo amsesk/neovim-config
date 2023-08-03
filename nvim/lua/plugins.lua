@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
     use {'jalvesaq/Nvim-R'}
     
     use {'hkupty/iron.nvim'}
+    use {'chentoast/marks.nvim'}
     -- use {'ms-jpq/coq_nvim', branch = 'coq'}
     -- use {'ms-jpq/coq.artifacts', branch = "artifacts"}
     -- use {'ms-jpq/coq.thirdparty', branch = "3p" }
