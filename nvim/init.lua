@@ -19,7 +19,7 @@ end
 
 -- Packer plugins
 require('plugins').install()
-require('coc_config')
+try_require('coc_config')
 
 -- try_require'lspconfig'.r_language_server.setup{ log_level = 1}
 
@@ -68,9 +68,10 @@ try_require'nvim-treesitter.configs'.setup {
   },
 }
 
--- Nvim-R settings
+-- Nvim-R settingips
 vim.api.nvim_set_var('R_assign', 0)
 vim.api.nvim_set_var('maplocalleader', "'")
+vim.api.nvim_set_var('mapleader', " ")
 vim.api.nvim_set_var('R_external_term', 0)
 
 -- Iron settings
@@ -79,7 +80,7 @@ try_require("iron.core").setup {
   config = {
     -- Whether a repl should be discarded or not
     scratch_repl = true,
-    -- Your repl definitions come here
+    -- Your repl definitions comee
     repl_definition = {
       sh = {
         -- Can be a table or a function that
@@ -138,7 +139,7 @@ try_require('marks').setup {
   sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
   -- disables mark tracking for specific filetypes. default {}
   excluded_filetypes = {},
-  -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+  -- marks.nvim allows you to cnfigure up to 10 bookmark groups, each with its own
   -- sign/virttext. Bookmarks can be used to group together positions and quickly move
   -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
   -- default virt_text is "".
@@ -158,6 +159,7 @@ vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
 vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
 vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 
+vim.keymap.set("x", "<leader>p", "\"_dP")
 
 try_require'pretty-fold'.setup()
 try_require'fold-preview'.setup()
