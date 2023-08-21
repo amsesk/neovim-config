@@ -6,18 +6,49 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'nvim-treesitter/nvim-treesitter'
-    use 'glepnir/zephyr-nvim'
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {'williamboman/mason.nvim'},           -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    }
 
     use {'chamindra/marvim'}
 
-    use {'neoclide/coc.nvim', branch = 'release'}
+    use"mbbill/undotree"
+
+    use"tpope/vim-fugitive"
+
+    use'nvim-lua/plenary.nvim'
+    use'ThePrimeagen/harpoon'
+
+    --use {'neoclide/coc.nvim', branch = 'release'}
     use {'jalvesaq/Nvim-R'}
     
     use {'hkupty/iron.nvim'}
     use {'chentoast/marks.nvim'}
-    use 'AlexvZyl/nordic.nvim'
-    
+
     use 'anuvyklack/pretty-fold.nvim'
+
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.2',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
     use {
         'sudormrfbin/cheatsheet.nvim',
@@ -32,8 +63,8 @@ return require('packer').startup(function(use)
         requires = 'anuvyklack/keymap-amend.nvim'
     }
 
-    -- use {'ms-jpq/coq_nvim', branch = 'coq'}
-    -- use {'ms-jpq/coq.artifacts', branch = "artifacts"}
-    -- use {'ms-jpq/coq.thirdparty', branch = "3p" }
-    -- use {'neovim/nvim-lspconfig'} 
+    -- Themes
+    use 'AlexvZyl/nordic.nvim'
+    use {'ray-x/starry.nvim'}
+    use 'glepnir/zephyr-nvim'
 end)
