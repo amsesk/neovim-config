@@ -25,7 +25,10 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
-
+--    use({
+--     "aserowy/tmux.nvim",
+--        config = function() return require("tmux").setup() end
+--    })
     use {'chamindra/marvim'}
 
     use"mbbill/undotree"
@@ -36,8 +39,8 @@ return require('packer').startup(function(use)
     use'ThePrimeagen/harpoon'
 
     --use {'neoclide/coc.nvim', branch = 'release'}
-    use {'jalvesaq/Nvim-R'}
-    
+    --use {'jalvesaq/Nvim-R'}
+
     use {'hkupty/iron.nvim'}
     use {'chentoast/marks.nvim'}
 
@@ -49,15 +52,6 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-
-    use {
-        'sudormrfbin/cheatsheet.nvim',
-        requires = {
-            {'nvim-telescope/telescope.nvim'},
-            {'nvim-lua/popup.nvim'},
-            {'nvim-lua/plenary.nvim'},
-	}
-    }
     use {
         'anuvyklack/fold-preview.nvim',
         requires = 'anuvyklack/keymap-amend.nvim'
@@ -67,4 +61,6 @@ return require('packer').startup(function(use)
     use 'AlexvZyl/nordic.nvim'
     use {'ray-x/starry.nvim'}
     use 'glepnir/zephyr-nvim'
+    use "EdenEast/nightfox.nvim"
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
 end)
