@@ -62,5 +62,8 @@ return require('packer').startup(function(use)
     use {'ray-x/starry.nvim'}
     use 'glepnir/zephyr-nvim'
     use "EdenEast/nightfox.nvim"
+    use "sainnhe/edge"
+    use "yonlu/omni.vim"
     use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use ({ 'projekt0n/caret.nvim' })
 end)

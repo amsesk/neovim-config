@@ -117,7 +117,10 @@ vim.o.cursorcolumn = false
 vim.o.foldcolumn = "auto"
 vim.o.termguicolors = true
 
+-- Colorscheme configuration
+try_require("colorschemes/nightfox")
+
 -- Try to change the colorscheme, but do nothing if it fails
 --local ok, _ = pcall(vim.cmd.colorscheme, 'zephyr')
-local ok, _ = pcall(vim.cmd.colorscheme, 'rose-pine')
+local ok, _ = pcall(vim.cmd.colorscheme, 'nordfox')
 
