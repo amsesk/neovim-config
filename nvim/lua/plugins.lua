@@ -3,8 +3,10 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim' 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+--    use { 'feline-nvim/feline.nvim' }
     use 'nvim-treesitter/nvim-treesitter'
     use({
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -12,7 +14,7 @@ return require('packer').startup(function(use)
     })
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
@@ -25,12 +27,26 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
---    use({
---     "aserowy/tmux.nvim",
---        config = function() return require("tmux").setup() end
---    })
-    use {'chamindra/marvim'}
+    use {
+        "folke/noice.nvim",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    }
 
+    use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup() end
+    }
+    use {'chamindra/marvim'}
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
     use"mbbill/undotree"
 
     use"tpope/vim-fugitive"
@@ -58,12 +74,14 @@ return require('packer').startup(function(use)
     }
 
     -- Themes
-    use 'AlexvZyl/nordic.nvim'
-    use {'ray-x/starry.nvim'}
-    use 'glepnir/zephyr-nvim'
-    use "EdenEast/nightfox.nvim"
-    use "sainnhe/edge"
-    use "yonlu/omni.vim"
+    --use 'AlexvZyl/nordic.nvim'
+    --use {'ray-x/starry.nvim'}
+    --use 'glepnir/zephyr-nvim'
+    --use "EdenEast/nightfox.nvim"
+    --use "sainnhe/edge"
+    --use "yonlu/omni.vim"
     use({ 'rose-pine/neovim', as = 'rose-pine' })
     use ({ 'projekt0n/caret.nvim' })
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { "folke/tokyonight.nvim" }
 end)
