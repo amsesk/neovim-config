@@ -86,9 +86,10 @@ local ts_opts = {
 
 K = {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     opts = ts_opts,
-    config = function()
-        require("nvim-treesitter").setup(_, opts)
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
         vim.cmd(":TSUpdate")
     end
 }

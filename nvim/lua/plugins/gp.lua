@@ -1,8 +1,10 @@
 K = {
 	"robitx/gp.nvim",
         opts = {
-            openai_api_key = "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",
-            chat_model = "gpt-3.5-turbo",
+            openai_api_key = os.getenv("OPENAI_API_KEY"),
+            agents = {
+                { name = "ChatGPT4" },
+            },
 
         },
 	config = function(_, opts)

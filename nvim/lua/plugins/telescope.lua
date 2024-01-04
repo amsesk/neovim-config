@@ -6,6 +6,7 @@ K = {'nvim-telescope/telescope.nvim',
                             { "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Grep in files" },
                             { "<leader>pb", "<cmd>lua require('telescope.builtin').buffers()<cr>", "Fuzzy-find buffers" },
                             { "<leader>pc", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", "Fuzzy-find colorschemes" },
+                            { "<leader>hh", "<cmd>lua require('mini.visits').list_paths()<cr>", "Fuzzy-find colorschemes" },
                         },
                         config = function()
                             local telescope = require("telescope")
