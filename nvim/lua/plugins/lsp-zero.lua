@@ -41,13 +41,25 @@ K = {
             require("cmp").setup({
                 sources={
                     {name="nvim_lsp"},
-                    {name="path"},
+                    {
+                        name="path",
+                        option = {
+                            get_cwd = function()
+                            end
+                        }
+                    },
                 },
                 formatting = cmp_format
             })
         end
     },
-    {'L3MON4D3/LuaSnip'},
+    {
+	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp"
+    }
 }
 
 return K
