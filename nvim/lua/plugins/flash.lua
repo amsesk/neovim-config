@@ -3,10 +3,25 @@ K = {
   event = "VeryLazy",
   ---@type Flash.Config
   opts = {
+    label = {
+        style = "overlay",
+            jump_labels = false,
+    },
     modes = {
+        search = {
+            highlight = {
+                backdrop = true,
+            },
+        },
         char = {
+            jump_labels = false,
             keys = { "f", "F", "t", "T", ";", "," },
-        }
+            highlight = {
+                groups = {
+                    label = "FlashCharSearch",
+                },
+            },
+        },
     }
   },
   -- stylua: ignore
