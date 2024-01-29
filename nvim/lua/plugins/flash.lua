@@ -2,7 +2,28 @@ K = {
   "folke/flash.nvim",
   event = "VeryLazy",
   ---@type Flash.Config
-  opts = {},
+  opts = {
+    label = {
+        style = "overlay",
+            jump_labels = false,
+    },
+    modes = {
+        search = {
+            highlight = {
+                backdrop = true,
+            },
+        },
+        char = {
+            jump_labels = false,
+            keys = { "f", "F", "t", "T", ";", "," },
+            highlight = {
+                groups = {
+                    label = "FlashCharSearch",
+                },
+            },
+        },
+    }
+  },
   -- stylua: ignore
   keys = {
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
