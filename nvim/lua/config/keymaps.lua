@@ -4,9 +4,8 @@ vim.keymap.set("n", "<leader>c", "\"_c")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
-vim.keymap.set("t", "<leader>ww", "<C-\\><C-n><C-w>w")
-vim.keymap.set("n", "<leader>ww", "<C-W>w")
-vim.keymap.set("n", "<leader>wp", "<C-W>W")
+vim.keymap.set({"n","t"}, "<leader>ww", "<cmd>wincmd w<cr>")
+vim.keymap.set({"n","t"}, "<leader>wp", "<cmd>wincmd p<cr>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
