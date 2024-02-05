@@ -15,17 +15,22 @@ local function mini_ai_opts()
     return opts
 end
 
+local function statusline_setup()
+    vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { bg = "Love", fg = "Surface" })
+    vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { bg = "Gold", fg = "Surface" })
+    vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = "Iris" })
+end
+
     
 K = { 'echasnovski/mini.nvim', 
     version = false,
     dependencies = { 
         { "nvim-tree/nvim-web-devicons", lazy = false },
     },
-    opts = {
-    },
     config = function(_, _opts)
         -- require("mini.files").setup(mini_files_opts)
         require("mini.statusline").setup()
+        -- statusline_setup()
         -- require('mini.visits').setup()
         require('mini.pick').setup()
         require('mini.ai').setup()
