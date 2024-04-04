@@ -44,8 +44,8 @@ K = {
                     {
                         name="path",
                         option = {
-                            get_cwd = function()
-                            end
+                            --get_cwd = function()
+                            --end
                         }
                     },
                     {name = "luasnip"}
@@ -73,7 +73,8 @@ K = {
     }
 }
 
-return K
+--return K
+return {}
 
 -- Primeagen apparently outdated keybinding config
 --local cmp_select = {behavior = cmp.SelectBehavior.Select}

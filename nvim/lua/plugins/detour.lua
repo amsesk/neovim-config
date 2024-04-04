@@ -30,4 +30,5 @@ K = { "carbon-steel/detour.nvim",
     end)
    end
 }
-return K
+--return K
+return {}

@@ -7,4 +7,3 @@ require("config.settings")
 require("snippets.python")
 
 local ok, _ = pcall(vim.cmd.colorscheme, 'rose-pine-moon')
-

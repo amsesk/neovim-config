@@ -1,15 +1,15 @@
 K = {
-  "GCBallesteros/NotebookNavigator.nvim",
+    dir = "/home/ubuntu/dev/neovim/NotebookNavigator.nvim",
+    --"GCBallesteros/NotebookNavigator.nvim",
   keys = {
     --{ "]h", function() require("notebook-navigator").move_cell "d" end },
     --{ "[h", function() require("notebook-navigator").move_cell "u" end },
     { "<leader>sc", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
-    { "<leader>scm", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
   },
   dependencies = {
     "echasnovski/mini.comment",
-    "hkupty/iron.nvim", -- repl provider
-    -- "akinsho/toggleterm.nvim", -- alternative repl provider
+    -- "hkupty/iron.nvim", -- repl provider
+    "akinsho/toggleterm.nvim", -- alternative repl provider
     -- "benlubas/molten-nvim", -- alternative repl provider
     -- "anuvyklack/hydra.nvim",
   },

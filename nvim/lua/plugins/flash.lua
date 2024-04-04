@@ -16,6 +16,7 @@ K = {
         char = {
             jump_labels = false,
             keys = { "f", "F", "t", "T", ";", "," },
+            --keys = { ";", "," },
             highlight = {
                 groups = {
                     label = "FlashCharSearch", -- create new highlight group for char search so labels can vary from regular search
