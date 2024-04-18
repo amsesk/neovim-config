@@ -1,7 +1,10 @@
 K = {
     "nvim-neorg/neorg",
     run = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { 
+        "nvim-lua/plenary.nvim",
+        "vhyrro/luarocks.nvim"
+    },
     config = function()
       require("neorg").setup {
         load = {
