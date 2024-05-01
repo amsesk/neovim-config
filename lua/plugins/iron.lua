@@ -44,5 +44,6 @@ K = {'Vigemus/iron.nvim',
     end,
     lazy = false,
     }
-    return K
+    --return K
+    return {}
 

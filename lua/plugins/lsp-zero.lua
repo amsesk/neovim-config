@@ -36,7 +36,7 @@ K = {
         end,
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp',
-        config = function(x)
+        config = function(_, opts)
             local cmp_format = require('lsp-zero').cmp_format()
             require("cmp").setup({
                 sources={
@@ -44,15 +44,26 @@ K = {
                     {
                         name="path",
                         option = {
-                            get_cwd = function()
-                            end
+                            --get_cwd = function()
+                            --end
                         }
                     },
+                    {name = "luasnip"}
                 },
-                formatting = cmp_format
+                formatting = cmp_format,
+                snippet = {
+                    expand = function(args)
+                        local ls = prerequire("luasnip")
+                        if not ls then
+                            return
+                        end
+                        ls.lsp_expand(args.body)
+                    end,
+                }
             })
         end
     },
+    {"saadparwaiz1/cmp_luasnip"},
     {
 	"L3MON4D3/LuaSnip",
 	-- follow latest release.
@@ -62,7 +73,8 @@ K = {
     }
 }
 
-return K
+--return K
+return {}
 
 -- Primeagen apparently outdated keybinding config
 --local cmp_select = {behavior = cmp.SelectBehavior.Select}

@@ -2,7 +2,7 @@ K = {'nvim-telescope/telescope.nvim',
                         tag = '0.1.4',
                         dependencies = { 
                             "nvim-lua/plenary.nvim",
-                            "debugloop/telescope-undo.nvim",
+                            --"debugloop/telescope-undo.nvim",
                         },
                         keys = {
                             { "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>", "Fuzzy-find files" },
@@ -14,7 +14,7 @@ K = {'nvim-telescope/telescope.nvim',
                         config = function()
                             local telescope = require("telescope")
                             telescope.setup(_, opts)
-                            telescope.load_extension("undo")
+                            --telescope.load_extension("undo")
                         end,
                     }
 return K
