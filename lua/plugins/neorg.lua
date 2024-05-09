@@ -1,10 +1,7 @@
 K = {
     "nvim-neorg/neorg",
-    dependencies = { 
-        "luarocks.nvim"
-    },
-    lazy = false,
-    version = "*",
+    run = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("neorg").setup {
         load = {
@@ -12,7 +9,10 @@ K = {
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
-              workspaces = {},
+              workspaces = {
+                notes = "/home/ubuntu/notes",
+              },
+              default_workspace = "notes",
             },
           },
         },
@@ -20,4 +20,4 @@ K = {
     end,
   }
 
-return K
+return {}

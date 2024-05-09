@@ -17,4 +17,4 @@ vim.wo.foldmethod="expr"
 vim.o.foldexpr="nvim_treesitter#foldexpr()"
 vim.o.foldenable = true
 
-vim.o.guicursor = "n:blinkon0,i:blinkon1"
+vim.o.guicursor = "n:block-blinkon0,i:ver25-blinkon1"

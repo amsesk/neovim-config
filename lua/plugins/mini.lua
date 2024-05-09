@@ -1,16 +1,31 @@
 local mini_files_opts = {
     mappings = {
-        go_in = '<CR>',
-        go_out = '-',
-    }
+        go_in = "<CR>",
+        go_out = "-",
+    },
 }
-
+-- ```{python}
 local function mini_ai_opts()
     local nn = require("notebook-navigator")
-    local opts = { 
+    local opts = {
         custom_textobjects = {
-            h = nn.miniai_spec
-        }
+            l = nn.miniai_spec,
+            b = function()
+                local start_line = vim.fn.search("^```{\\a\\+}", "bcnW") + 1
+                -- if start_line > 0 then
+                -- else
+                --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
+                --     local r, _c = table.unpack(vim.api.nvim_win_get_cursor(0))
+                --     local diff = start_line - r
+                --     vim.cmd(diff .. "j")
+                -- end
+                local end_line = vim.fn.search("^```", "nW") - 1
+                local last_col = math.max(vim.fn.getline(end_line):len(), 1)
+                local from = { line = start_line, col = 1 }
+                local to = { line = end_line, col = last_col }
+                return { from = from, to = to }
+            end,
+        },
     }
     return opts
 end
@@ -21,10 +36,10 @@ local function statusline_setup()
     vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { bg = "Iris" })
 end
 
-    
-K = { 'echasnovski/mini.nvim', 
+K = {
+    "echasnovski/mini.nvim",
     version = false,
-    dependencies = { 
+    dependencies = {
         { "nvim-tree/nvim-web-devicons", lazy = false },
     },
     config = function(_, _opts)
@@ -32,8 +47,9 @@ K = { 'echasnovski/mini.nvim',
         require("mini.statusline").setup()
         -- statusline_setup()
         -- require('mini.visits').setup()
-        require('mini.pick').setup()
-        require('mini.ai').setup()
+        require("mini.pick").setup()
+        require("mini.ai").setup(mini_ai_opts())
+        require("mini.surround").setup()
     end,
     keys = {
         -- { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },

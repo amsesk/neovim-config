@@ -19,7 +19,7 @@ M = {
         --local lsp_zero = require('lsp-zero')
         --lsp_zero.extend_lspconfig()
         require("mason-lspconfig").setup({
-            ensure_installed = {"r_language_server", "pyright", "bashls", "lua_ls", "rust_analyzer"},
+            ensure_installed = {"pyright", "bashls", "lua_ls", "rust_analyzer"},
             -- handlers = {
                 --   lsp_zero.default_setup,
                 --}
@@ -32,7 +32,13 @@ M = {
         local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup {}
         lspconfig.pyright.setup {}
-        lspconfig.r_language_server.setup {}
+        lspconfig.r_language_server.setup {
+            -- settings = {
+            --     r_language_server = {
+            --         diagnostics = false
+            --     }
+            -- }
+        }
 
         lspconfig.lua_ls.setup {}
 
@@ -58,7 +64,7 @@ M = {
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
                 vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
                 vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
                 vim.keymap.set('n', '<space>wl', function()
@@ -76,7 +82,7 @@ M = {
         end
     },
     {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lsp-signature-help'},
+    --{'hrsh7th/cmp-nvim-lsp-signature-help'},
     {'hrsh7th/nvim-cmp',
         config = function(_, opts)
             local cmp = require('cmp')
@@ -84,6 +90,7 @@ M = {
                 sources={
                     {name="nvim_lsp"},
                     {name="nvim_lsp_signature_help"},
+                    {name="buffer"},
                     {
                         name="path",
                         option = {
