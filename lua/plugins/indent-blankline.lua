@@ -3,4 +3,4 @@ K = {"lukas-reineke/indent-blankline.nvim",
     config = true,
     opts = {}, 
 }
-return K
+return {}

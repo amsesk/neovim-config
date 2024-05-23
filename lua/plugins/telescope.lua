@@ -9,12 +9,14 @@ K = {'nvim-telescope/telescope.nvim',
                             { "<leader>pg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Grep in files" },
                             { "<leader>pb", "<cmd>lua require('telescope.builtin').buffers()<cr>", "Fuzzy-find buffers" },
                             { "<leader>pc", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", "Fuzzy-find colorschemes" },
+                            { "<leader>pm", "<cmd>lua require('telescope.builtin').marks()<cr>", "Fuzzy-find marks" },
+
                             { "<leader>u", "<cmd>Telescope undo<cr>", "Fuzzy-find undo tree." },
                         },
                         config = function()
                             local telescope = require("telescope")
                             telescope.setup(_, opts)
-                            --telescope.load_extension("undo")
+                            telescope.load_extension("toggleterm-repl")
                         end,
                     }
 return K

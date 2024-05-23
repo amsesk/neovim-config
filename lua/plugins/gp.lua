@@ -16,4 +16,4 @@ K = {
         	-- shortcuts might be setup here (see Usage > Shortcuts in Readme)
 	end,
 }
-return K
+return {}
