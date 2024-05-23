@@ -11,7 +11,7 @@ local function mini_ai_opts()
         custom_textobjects = {
             l = nn.miniai_spec,
             b = function()
-                local start_line = vim.fn.search("^```{\\a\\+}", "bcnW") + 1
+                local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
                 -- if start_line > 0 then
                 -- else
                 --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
@@ -19,7 +19,13 @@ local function mini_ai_opts()
                 --     local diff = start_line - r
                 --     vim.cmd(diff .. "j")
                 -- end
-                local end_line = vim.fn.search("^```", "nW") - 1
+                local end_line_above = vim.fn.search("^```\\s*$", "bcnW") - 1
+                local end_line
+                if end_line_above > start_line then
+                    end_line = end_line_above
+                else
+                    end_line = vim.fn.search("^```\\s*$", "nW") - 1
+                end
                 local last_col = math.max(vim.fn.getline(end_line):len(), 1)
                 local from = { line = start_line, col = 1 }
                 local to = { line = end_line, col = last_col }
@@ -50,6 +56,13 @@ K = {
         require("mini.pick").setup()
         require("mini.ai").setup(mini_ai_opts())
         require("mini.surround").setup()
+        require("mini.indentscope").setup()
+        -- require("mini.map").setup()
+        require('mini.jump').setup({
+            delay = {
+                idle_stop = 2500,
+            },
+        })
     end,
     keys = {
         -- { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },

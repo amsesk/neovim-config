@@ -23,6 +23,13 @@ M = {
             mode = { "n" },
         },
         { "<leader>ee", "?^# %%$<cr>NVn", "Send line to toggle term.", mode = { "n" } },
+        {
+            "<leader>tp",
+            function()
+                local ttr = require("toggleterm-repl").stuff
+                ttr._new_repl(ttr.replopts.py, "py1", true):open()
+            end,
+        },
         --{ "<leader>cc", "?^# %%$<cr>ma<esc>Nmb<esc>`aV`b<leader>ss", "Send line to toggle term.", mode = {"n"} },
     },
     dependencies = {
