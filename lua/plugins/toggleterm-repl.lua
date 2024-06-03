@@ -16,12 +16,12 @@ M = {
             mode = { "v" },
         },
         { "<leader>cc", "<cmd>lua require('toggleterm-repl').stuff.run_cell_and_move()<cr>", mode = { "n" } },
-        {
-            "<leader>tt",
-            "<cmd>lua require('toggleterm-repl').stuff._create_window()<cr>",
-            "Open list of repls.",
-            mode = { "n" },
-        },
+        -- {
+        --     "<leader>tt",
+        --     "<cmd>lua require('toggleterm-repl').stuff._create_window()<cr>",
+        --     "Open list of repls.",
+        --     mode = { "n" },
+        -- },
         { "<leader>ee", "?^# %%$<cr>NVn", "Send line to toggle term.", mode = { "n" } },
         {
             "<leader>tp",
