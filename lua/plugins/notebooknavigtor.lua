@@ -1,6 +1,6 @@
 K = {
-    dir = "/home/ubuntu/dev/neovim/NotebookNavigator.nvim",
-    --"GCBallesteros/NotebookNavigator.nvim",
+    -- dir = "/home/ubuntu/dev/neovim/NotebookNavigator.nvim",
+    "GCBallesteros/NotebookNavigator.nvim",
   keys = {
     --{ "]h", function() require("notebook-navigator").move_cell "d" end },
     --{ "[h", function() require("notebook-navigator").move_cell "u" end },
