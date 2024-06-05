@@ -1,5 +1,6 @@
+local plugin_dir = os.getenv("HOME") .. "/dev/toggleterm-repl.nvim"
 M = {
-    dir = "/home/ubuntu/dev/neovim/toggleterm-repl.nvim/",
+    dir = plugin_dir,
     lazy = false,
     keys = {
         { "<C-t>", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
