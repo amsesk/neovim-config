@@ -26,4 +26,5 @@ K = {
         require("image").setup(opts)
     end,
 }
-return K
+return {}
+-- return K

@@ -29,14 +29,22 @@ M = {
         config = function()
             -- Setup language servers.
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = {'vim'},
+                        },
+                    },
+                },
+            })
             lspconfig.pyright.setup({})
             lspconfig.r_language_server.setup({})
             lspconfig.marksman.setup({
                 filetypes = { "markdown", "quarto" },
                 root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
             })
-            lspconfig.lua_ls.setup({})
 
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -1,5 +1,6 @@
+local plugin_dir = os.getenv("HOME") .. "/dev/toggleterm-repl.nvim"
 M = {
-    dir = "/home/ubuntu/dev/neovim/toggleterm-repl.nvim/",
+    dir = plugin_dir,
     lazy = false,
     keys = {
         { "<C-t>", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
@@ -16,12 +17,12 @@ M = {
             mode = { "v" },
         },
         { "<leader>cc", "<cmd>lua require('toggleterm-repl').stuff.run_cell_and_move()<cr>", mode = { "n" } },
-        {
-            "<leader>tt",
-            "<cmd>lua require('toggleterm-repl').stuff._create_window()<cr>",
-            "Open list of repls.",
-            mode = { "n" },
-        },
+        -- {
+        --     "<leader>tt",
+        --     "<cmd>lua require('toggleterm-repl').stuff._create_window()<cr>",
+        --     "Open list of repls.",
+        --     mode = { "n" },
+        -- },
         { "<leader>ee", "?^# %%$<cr>NVn", "Send line to toggle term.", mode = { "n" } },
         {
             "<leader>tp",
