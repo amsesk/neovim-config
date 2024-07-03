@@ -54,10 +54,12 @@ K = {
         -- statusline_setup()
         -- require('mini.visits').setup()
         require("mini.pick").setup()
+        require("mini.animate").setup()
         require("mini.ai").setup(mini_ai_opts())
         require("mini.surround").setup()
         require("mini.indentscope").setup()
-        -- require("mini.map").setup()
+        -- require("mini.diff").setup()
+        require("mini.git").setup()
         require('mini.jump').setup({
             delay = {
                 idle_stop = 2500,

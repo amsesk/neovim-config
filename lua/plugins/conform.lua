@@ -26,6 +26,7 @@ K = {
         -- },
     },
     config = true,
+    lazy = false,
     keys = {
         { "<leader>gf", "<cmd>lua require('conform').format({async = true})<cr>", "Format buffer." },
     },
