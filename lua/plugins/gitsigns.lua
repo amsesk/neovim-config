@@ -4,8 +4,10 @@ K = {
     lazy = false,
     keys = {
             { "<leader>hs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk", mode = {"n", "v"} },
+            { "<leader>hS", "<cmd>Gitsigns stage_buffer<cr>", desc = "Stage buffer", mode = {"n", "v"} },
             { "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "Undo stage hunk", mode = {"n", "v"} },
             { "<leader>htl", "<cmd>Gitsigns toggle_linehl<cr>", desc = "Toggle line highlights.", mode = {"n", "v"} },
         },
+        opts = {},
     }
 return K
