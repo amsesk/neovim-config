@@ -8,6 +8,5 @@ K = {
             { "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "Undo stage hunk", mode = {"n", "v"} },
             { "<leader>htl", "<cmd>Gitsigns toggle_linehl<cr>", desc = "Toggle line highlights.", mode = {"n", "v"} },
         },
-        opts = {},
     }
 return K
