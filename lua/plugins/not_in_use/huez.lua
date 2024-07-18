@@ -6,4 +6,4 @@ K = {
         require("huez").setup({})
     end,
 }
-return K
+return {}

@@ -1,19 +1,26 @@
 K = {
-	"robitx/gp.nvim",
-        opts = {
-            openai_api_key = os.getenv("OPENAI_API_KEY"),
-            agents = {
-                { name = "ChatGPT4" },
-            },
-
+    "robitx/gp.nvim",
+    opts = {
+        openai_api_key = os.getenv("OPENAI_API_KEY"),
+        agents = {},
+        chat_user_prefix = ">>",
+        hooks = {
+            Document = function(gp, params)
+                local template = "I have the following function defintion in {{filename}}:\n\n"
+                    .. "```{{filetype}}\n{{selection}}\n```\n\n"
+                    .. "Please write a {{filetype}} docstring for it."
+                local agent = gp.get_command_agent()
+                gp.Prompt(params, gp.Target.rewrite, nil, agent.model, template, agent.system_prompt)
+            end,
         },
-	config = function(_, opts)
-		require("gp").setup(opts)
+    },
+    config = function(_, opts)
+        require("gp").setup(opts)
+        vim.cmd("GpAgent CodeGPT4o")
+    end,
+    keys = {
+        {"<C-g>D", ":GpDocument", mode = "v", desc = "Generate docstring for function signature defined in visual selection."}
 
-		-- or setup with your own config (see Install > Configuration in Readme)
-		-- require("gp").setup(conf)
-
-        	-- shortcuts might be setup here (see Usage > Shortcuts in Readme)
-	end,
+    }
 }
-return {}
+return K

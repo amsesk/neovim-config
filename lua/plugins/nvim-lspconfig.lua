@@ -41,10 +41,10 @@ M = {
             })
             lspconfig.pyright.setup({})
             lspconfig.r_language_server.setup({})
-            lspconfig.marksman.setup({
-                filetypes = { "markdown", "quarto" },
-                root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
-            })
+            -- lspconfig.marksman.setup({
+            --     filetypes = { "markdown", "quarto" },
+            --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
+            -- })
 
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -89,7 +89,7 @@ M = {
     --{'hrsh7th/cmp-nvim-lsp-signature-help'},
     {
         "hrsh7th/nvim-cmp",
-        dependencies = { "jmbuhr/otter.nvim" },
+        -- dependencies = { "jmbuhr/otter.nvim" },
         config = function(_, opts)
             local cmp = require("cmp")
             cmp.setup({
@@ -97,7 +97,7 @@ M = {
                     { name = "nvim_lsp" },
                     { name = "nvim_lsp_signature_help" },
                     { name = "buffer" },
-                    { name = "otter" },
+                    -- { name = "otter" },
                     {
                         name = "path",
                         option = {
