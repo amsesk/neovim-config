@@ -9,4 +9,4 @@ K = {
     -- not just the formal releases
     version = "*"
 }
-return K
+return {}

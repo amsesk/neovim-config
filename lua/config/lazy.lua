@@ -11,11 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-lazy = require("lazy")
+local lazy = require("lazy")
 lazy.setup({
     spec = {
-        { import = "plugins" },
         { import = "colorschemes" },
+        { import = "plugins" },
     }
 })
 

@@ -1,7 +1,8 @@
 local plugin_dir = os.getenv("HOME") .. "/dev/toggleterm-repl.nvim"
 M = {
-    dir = plugin_dir,
-    lazy = false,
+    "amsesk/toggleterm-repl.nvim",
+    -- dir = plugin_dir,
+    lazy = true,
     keys = {
         { "<C-t>", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         {
@@ -15,6 +16,23 @@ M = {
             "<cmd>lua require('toggleterm-repl').stuff.send_lines()<cr>",
             "Send line to toggle term.",
             mode = { "v" },
+        },
+        {
+            "<leader>sv",
+            "<cmd>lua require('toggleterm-repl').stuff.send_visual_selection()<cr>",
+            "Send visual selection to toggle term.",
+            mode = { "v" },
+        },
+        {
+            "<leader>sw",
+            "viw<cmd>lua require('toggleterm-repl').stuff.send_visual_selection()<cr><esc>",
+            -- function()
+            --     vim.api.nvim_feedkeys("viw", "n", false)
+            --     require('toggleterm-repl').stuff.send_visual_selection()
+            --     vim.api.nvim_feedkeys("<Esc>", "v", true)
+            -- end,
+            "Send word to toggle term.",
+            mode = { "n" },
         },
         { "<leader>cc", "<cmd>lua require('toggleterm-repl').stuff.run_cell_and_move()<cr>", mode = { "n" } },
         -- {
@@ -35,8 +53,8 @@ M = {
     },
     dependencies = {
         "akinsho/nvim-toggleterm.lua",
-        "ryanmsnyder/toggleterm-manager.nvim",
         "GCBallesteros/NotebookNavigator.nvim",
+        "nvim-telescope/telescope.nvim",
     },
     config = true,
 }

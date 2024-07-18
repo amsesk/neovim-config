@@ -5,4 +5,4 @@ K = {
       -- rocks = { "magick" },
   },
 }
-return K
+return {}

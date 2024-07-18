@@ -5,4 +5,4 @@ K = {
         require('distant'):setup()
     end
 }
-return K
+return {}

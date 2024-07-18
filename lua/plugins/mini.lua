@@ -4,7 +4,6 @@ local mini_files_opts = {
         go_out = "-",
     },
 }
--- ```{python}
 local function mini_ai_opts()
     local nn = require("notebook-navigator")
     local opts = {
@@ -15,7 +14,7 @@ local function mini_ai_opts()
                 -- if start_line > 0 then
                 -- else
                 --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
-                --     local r, _c = table.unpack(vim.api.nvim_win_get_cursor(0))
+                --     local r, _c = table.unpack(vim.api.nvim_win_get_cursor(0))k
                 --     local diff = start_line - r
                 --     vim.cmd(diff .. "j")
                 -- end
@@ -50,23 +49,48 @@ K = {
     },
     config = function(_, _opts)
         -- require("mini.files").setup(mini_files_opts)
+        -- require('mini.visits').setup()
+        -- require("mini.pick").setup()
+        -- require("mini.diff").setup()
         require("mini.statusline").setup()
         -- statusline_setup()
-        -- require('mini.visits').setup()
-        require("mini.pick").setup()
-        require("mini.animate").setup()
-        require("mini.ai").setup(mini_ai_opts())
-        require("mini.surround").setup()
-        require("mini.indentscope").setup()
-        -- require("mini.diff").setup()
-        require("mini.git").setup()
-        require('mini.jump').setup({
-            delay = {
-                idle_stop = 2500,
+        require("mini.animate").setup({
+            cursor = {
+                timing = require("mini.animate").gen_timing.linear({ duration = 175, unit = "total" }),
+            },
+            scroll = {
+                timing = require("mini.animate").gen_timing.linear({ duration = 175, unit = "total" }),
             },
         })
+        require("mini.ai").setup(mini_ai_opts())
+        require("mini.surround").setup({
+            mappings = {
+                add = "msa", -- Add surrounding in Normal and Visual modes
+                delete = "msd", -- Delete surrounding
+                find = "msf", -- Find surrounding (to the right)
+                find_left = "msF", -- Find surrounding (to the left)
+                highlight = "msh", -- Highlight surrounding
+
+                replace = "msr", -- Replace surrounding
+                update_n_lines = "msn", -- Update `n_lines`
+
+                suffix_last = "ml", -- Suffix to search with "prev" method
+                suffix_next = "mn", -- Suffix to search with "next" method
+            },
+        })
+        require("mini.indentscope").setup()
+        require("mini.git").setup()
+        -- Trying to use leap instead with native fFtT
+        -- require("mini.jump").setup({
+        --     delay = {
+        --         idle_stop = 2500,
+        --     },
+        -- })
     end,
     keys = {
+        { "<leader>ht", "<cmd>horiz Git status<cr>", "Mini git status" },
+        { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
+        { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
         -- { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
         -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('forward')<cr>", "Go to next visit." },
         -- { "<C-h>", "<cmd>lua MiniVisits.iterate_paths('backward')<cr>", "Go to last visit." },

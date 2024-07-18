@@ -1,6 +1,6 @@
 local ts_opts = {
     -- A list of parser names, or "all" (the four listed parsers should always be installed)
-    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "r", "rust" },
+    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "rust" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = true,
@@ -47,8 +47,8 @@ local ts_opts = {
 
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
+                ["aF"] = "@function.outer",
+                ["iF"] = "@function.inner",
                 ["al"] = "@loop.outer",
                 ["il"] = "@loop.inner",
                 ["ac"] = "@class.outer",

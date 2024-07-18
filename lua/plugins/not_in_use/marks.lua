@@ -34,4 +34,4 @@ K = {"chentoast/marks.nvim",
       mappings = {}
     },
 }
-return K
+return {}

@@ -7,4 +7,4 @@ K = {
   },
   config = true
 }
-return K
+return {}
