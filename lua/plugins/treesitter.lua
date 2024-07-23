@@ -1,6 +1,6 @@
 local ts_opts = {
     -- A list of parser names, or "all" (the four listed parsers should always be installed)
-    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "rust" },
+    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "rust", "snakemake"},
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = true,
@@ -92,6 +92,8 @@ K = {
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
             vim.cmd(":TSUpdate")
+            -- vim.treesitter.language.register("python", "snakemake")
+            vim.treesitter.language.register("snakemake", "snakemake")
         end,
     },
     {
