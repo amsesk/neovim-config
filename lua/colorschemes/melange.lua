@@ -1,4 +1,5 @@
+local plugin_dir = os.getenv("HOME") .. "/dev/melange-nvim"
 return { 
-    dir = "/home/ubuntu/dev/melange-nvim/",
+    dir = plugin_dir,
     -- "savq/melange-nvim",
 }
