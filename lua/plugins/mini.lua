@@ -80,12 +80,11 @@ K = {
         })
         require("mini.indentscope").setup()
         require("mini.git").setup()
-        -- Trying to use leap instead with native fFtT
-        -- require("mini.jump").setup({
-        --     delay = {
-        --         idle_stop = 2500,
-        --     },
-        -- })
+        require("mini.jump").setup({
+            delay = {
+                idle_stop = 2500,
+            },
+        })
     end,
     keys = {
         { "<leader>ht", "<cmd>horiz Git status<cr>", "Mini git status" },
