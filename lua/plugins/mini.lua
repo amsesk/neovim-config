@@ -65,17 +65,17 @@ K = {
         require("mini.ai").setup(mini_ai_opts())
         require("mini.surround").setup({
             mappings = {
-                add = "msa", -- Add surrounding in Normal and Visual modes
-                delete = "msd", -- Delete surrounding
-                find = "msf", -- Find surrounding (to the right)
-                find_left = "msF", -- Find surrounding (to the left)
-                highlight = "msh", -- Highlight surrounding
+                add = "ys", -- Add surrounding in Normal and Visual modes
+                delete = "ds", -- Delete surrounding
+                find = "", -- Find surrounding (to the right)
+                find_left = "", -- Find surrounding (to the left)
+                highlight = "", -- Highlight surrounding
 
-                replace = "msr", -- Replace surrounding
-                update_n_lines = "msn", -- Update `n_lines`
+                replace = "cs", -- Replace surrounding
+                update_n_lines = "", -- Update `n_lines`
 
-                suffix_last = "ml", -- Suffix to search with "prev" method
-                suffix_next = "mn", -- Suffix to search with "next" method
+                suffix_last = "", -- Suffix to search with "prev" method
+                suffix_next = "", -- Suffix to search with "next" method
             },
         })
         require("mini.indentscope").setup()
@@ -91,7 +91,7 @@ K = {
         { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
         { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
         -- { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
-        -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('forward')<cr>", "Go to next visit." },
+        -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('')<cr>", "Go to next visit." },
         -- { "<C-h>", "<cmd>lua MiniVisits.iterate_paths('backward')<cr>", "Go to last visit." },
         -- { "<leader>hh", "<cmd>lua MiniPick.start({ source = { items = MiniVisits.list_paths() } })<cr>", "Go to last visit." },
     },
