@@ -43,6 +43,6 @@ end)
 -- Remove for leap
 -- vim.keymap.set("n", "s", "<NOP>")
 
-vim.keymap.set("n", "m", "<NOP>")
+-- vim.keymap.set("n", "m", "<NOP>")
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle")
