@@ -20,6 +20,7 @@ K = {'nvim-telescope/telescope.nvim',
                             local telescope = require("telescope")
                             telescope.setup(_, opts)
                             telescope.load_extension("toggleterm_repl")
+                            telescope.load_extension('macros')
                         end,
                     }
 return K
