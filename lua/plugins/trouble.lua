@@ -34,6 +34,5 @@ K = {
       desc = "Quickfix List (Trouble)",
     },
   },
-} 
-
+}
 return K
