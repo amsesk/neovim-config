@@ -1,10 +1,11 @@
 local plugin_dir = os.getenv("HOME") .. "/dev/toggleterm-repl.nvim"
 M = {
-    "amsesk/toggleterm-repl.nvim",
-    -- dir = plugin_dir,
+    -- "amsesk/toggleterm-repl.nvim",
+    dir = plugin_dir,
     lazy = true,
     keys = {
         { "<C-t>", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
+        -- { "<C-T>", "<cmd>TT:<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         {
             "<leader>ll",
             "<cmd>lua require('toggleterm-repl').stuff.send_line()<cr>",
