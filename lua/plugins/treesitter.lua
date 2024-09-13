@@ -1,6 +1,6 @@
 local ts_opts = {
     -- A list of parser names, or "all" (the four listed parsers should always be installed)
-    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "rust", "snakemake"},
+    ensure_installed = { "bash", "lua", "vim", "vimdoc", "python", "rust", "snakemake", "hyprlang"},
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = true,
