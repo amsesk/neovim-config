@@ -9,27 +9,27 @@ local function mini_ai_opts()
     local opts = {
         custom_textobjects = {
             l = nn.miniai_spec,
-            b = function()
-                local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
-                -- if start_line > 0 then
-                -- else
-                --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
-                --     local r, _c = table.unpack(vim.api.nvim_win_get_cursor(0))k
-                --     local diff = start_line - r
-                --     vim.cmd(diff .. "j")
-                -- end
-                local end_line_above = vim.fn.search("^```\\s*$", "bcnW") - 1
-                local end_line
-                if end_line_above > start_line then
-                    end_line = end_line_above
-                else
-                    end_line = vim.fn.search("^```\\s*$", "nW") - 1
-                end
-                local last_col = math.max(vim.fn.getline(end_line):len(), 1)
-                local from = { line = start_line, col = 1 }
-                local to = { line = end_line, col = last_col }
-                return { from = from, to = to }
-            end,
+            -- b = function()
+            --     local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
+            --     -- if start_line > 0 then
+            --     -- else
+            --     --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
+            --     --     local r, _c = table.unpack(vim.api.nvim_win_get_cursor(0))k
+            --     --     local diff = start_line - r
+            --     --     vim.cmd(diff .. "j")
+            --     -- end
+            --     local end_line_above = vim.fn.search("^```\\s*$", "bcnW") - 1
+            --     local end_line
+            --     if end_line_above > start_line then
+            --         end_line = end_line_above
+            --     else
+            --         end_line = vim.fn.search("^```\\s*$", "nW") - 1
+            --     end
+            --     local last_col = math.max(vim.fn.getline(end_line):len(), 1)
+            --     local from = { line = start_line, col = 1 }
+            --     local to = { line = end_line, col = last_col }
+            --     return { from = from, to = to }
+            -- end,
         },
     }
     return opts
