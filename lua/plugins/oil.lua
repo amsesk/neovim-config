@@ -139,8 +139,9 @@ K = {
     'stevearc/oil.nvim',
     opts = oil_opts,
     keys = {
-        {"<leader>pv", "<cmd>Oil<cr>", "Open oil.nvim file selector"},
+        -- {"<leader>pv", "<cmd>Oil<cr>", "Open oil.nvim file selector"},
     },
+    lazy = true,
     config = function(_, opts)
         local oil = require("oil")
         oil.setup(opts)

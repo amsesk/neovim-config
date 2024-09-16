@@ -2,6 +2,7 @@ local mini_files_opts = {
     mappings = {
         go_in = "<CR>",
         go_out = "-",
+        mark_goto = "`",
     },
 }
 local function mini_ai_opts()
@@ -48,7 +49,7 @@ K = {
         { "nvim-tree/nvim-web-devicons", lazy = false },
     },
     config = function(_, _opts)
-        -- require("mini.files").setup(mini_files_opts)
+        require("mini.files").setup(mini_files_opts)
         -- require('mini.visits').setup()
         -- require("mini.pick").setup()
         -- require("mini.diff").setup()
@@ -90,7 +91,7 @@ K = {
         { "<leader>ht", "<cmd>horiz Git status<cr>", "Mini git status" },
         { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
         { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
-        -- { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
+        { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
         -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('')<cr>", "Go to next visit." },
         -- { "<C-h>", "<cmd>lua MiniVisits.iterate_paths('backward')<cr>", "Go to last visit." },
         -- { "<leader>hh", "<cmd>lua MiniPick.start({ source = { items = MiniVisits.list_paths() } })<cr>", "Go to last visit." },
