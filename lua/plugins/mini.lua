@@ -82,6 +82,9 @@ K = {
         require("mini.indentscope").setup()
         require("mini.git").setup()
         require("mini.jump").setup({
+            mappings = {
+                repeat_jump = '',
+            },
             delay = {
                 idle_stop = 2500,
             },
