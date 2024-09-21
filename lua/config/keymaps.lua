@@ -49,6 +49,3 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle")
 
 vim.keymap.set("n", "<leader>q", "q", {remap = false})
 vim.keymap.set("n", "q", "<NOP>")
-
--- vim.cmd("noremap <Leader>q q")
--- vim.cmd("noremap q <Nop>")
