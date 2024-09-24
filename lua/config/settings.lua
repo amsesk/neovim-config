@@ -8,6 +8,7 @@ vim.o.cursorline = true
 vim.o.cursorcolumn = false
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
+vim.o.wrap = true
 
 --vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldcolumn = "auto:9"

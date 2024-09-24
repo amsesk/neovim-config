@@ -41,6 +41,7 @@ M = {
             })
             lspconfig.pyright.setup({})
             lspconfig.r_language_server.setup({})
+            lspconfig.clangd.setup({})
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
             --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
