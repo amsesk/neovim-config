@@ -17,7 +17,7 @@ M = {
             --local lsp_zero = require('lsp-zero')
             --lsp_zero.extend_lspconfig()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "bashls", "lua_ls", "rust_analyzer" },
+                ensure_installed = { "pyright", "bashls", "lua_ls", "rust_analyzer", "r_language_server" },
                 -- handlers = {
                 --   lsp_zero.default_setup,
                 --}
@@ -40,8 +40,11 @@ M = {
                 },
             })
             lspconfig.pyright.setup({})
+            lspconfig.lua_ls.setup({})
+            lspconfig.bashls.setup({})
             lspconfig.r_language_server.setup({})
             lspconfig.clangd.setup({})
+            lspconfig.rust_analyzer.setup({})
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
             --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),

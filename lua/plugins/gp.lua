@@ -18,8 +18,10 @@ K = {
         require("gp").setup(opts)
         vim.cmd("GpAgent CodeGPT4o")
     end,
+    lazy = false,
     keys = {
-        {"<C-g>D", ":GpDocument", mode = "v", desc = "Generate docstring for function signature defined in visual selection."}
+        {"<C-g>D", ":GpDocument", mode = "v", desc = "Generate docstring for function signature defined in visual selection."},
+        {"<C-g>t", ":GpChatToggle popup<cr>", mode = "n", desc = "Toggle the chat window."},
 
     }
 }
