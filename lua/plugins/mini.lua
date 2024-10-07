@@ -51,6 +51,7 @@ K = {
     config = function(_, _opts)
         require("mini.icons").setup()
         require("mini.files").setup(mini_files_opts)
+        require("mini.pairs").setup()
         -- require('mini.visits').setup()
         -- require("mini.pick").setup()
         -- require("mini.diff").setup()
