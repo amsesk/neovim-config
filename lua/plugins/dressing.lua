@@ -1,5 +1,9 @@
 K = {
   'stevearc/dressing.nvim',
-  opts = {},
+  opts = {
+      -- select = {
+      --     backend="nui",
+      -- },
+  },
 }
 return K

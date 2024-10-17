@@ -51,7 +51,11 @@ K = {
     config = function(_, _opts)
         require("mini.icons").setup()
         require("mini.files").setup(mini_files_opts)
-        require("mini.pairs").setup()
+        require("mini.pairs").setup({
+		mappings = {
+		    ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][^a-zA-Z0-9]' },
+	    },
+        })
         -- require('mini.visits').setup()
         -- require("mini.pick").setup()
         -- require("mini.diff").setup()
