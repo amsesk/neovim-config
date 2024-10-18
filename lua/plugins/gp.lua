@@ -10,7 +10,7 @@ K = {
                     .. "```{{filetype}}\n{{selection}}\n```\n\n"
                     .. "Please write a {{filetype}} docstring for it."
                 local agent = gp.get_command_agent()
-                gp.Prompt(params, gp.Target.rewrite, nil, agent.model, template, agent.system_prompt)
+                gp.Prompt(params, gp.Target.vnew, agent, template)
             end,
         },
     },
