@@ -24,8 +24,8 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>bn", ":bn<CR>")
-vim.keymap.set("n", "<leader>bp", ":bp<CR>")
+-- vim.keymap.set("n", "<leader>bn", ":bn<CR>")
+-- vim.keymap.set("n", "<leader>bp", ":bp<CR>")
 
 local numbering = "rel"
 vim.keymap.set("n", "<leader>nn", function()
@@ -47,5 +47,3 @@ end)
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle")
 
-vim.keymap.set("n", "<leader>q", "q", {remap = false})
-vim.keymap.set("n", "q", "<NOP>")
