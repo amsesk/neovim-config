@@ -20,4 +20,7 @@ vim.o.foldcolumn = "auto:9"
 -- vim.o.foldexpr="nvim_treesitter#foldexpr()"
 -- vim.o.foldenable = true
 
+-- Marker-based folding
+vim.wo.foldmethod = "marker"
+
 -- vim.o.guicursor = "n:block-blinkon0,i:ver25-blinkon1"
