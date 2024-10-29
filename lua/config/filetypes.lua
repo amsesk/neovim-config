@@ -1,9 +1,11 @@
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-  pattern = { [".*/hypr/.*%.conf.tmpl"] = "hyprlang" },
 })
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf.tmpl"] = "hyprlang" },
+})
+vim.filetype.add({
+  pattern = { [".*/*/.*%.lua.tmpl"] = "lua" },
 })
 vim.filetype.add({
   pattern = { [".*/.*%.jsonc.tmpl"] = "jsonc" },
