@@ -20,7 +20,7 @@ K = {
     -- calling `setup` is optional for customization
     fzf = require("fzf-lua")
     fzf.setup(opts)
-    -- fzf.register_ui_select()
+    fzf.register_ui_select()
     
   end,
   keys = {
