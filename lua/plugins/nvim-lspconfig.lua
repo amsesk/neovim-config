@@ -26,6 +26,9 @@ M = {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "saghen/blink.cmp",
+        },
         config = function()
             -- Setup language servers.
             local lspconfig = require("lspconfig")
@@ -46,11 +49,13 @@ M = {
                     -- },
                 },
             }
-            lspconfig.lua_ls.setup({})
-            lspconfig.bashls.setup({})
-            lspconfig.r_language_server.setup({})
-            lspconfig.clangd.setup({})
-            lspconfig.rust_analyzer.setup({})
+
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            lspconfig.lua_ls.setup({ capabilities = capabilities })
+            lspconfig.bashls.setup({ capabilities = capabilities })
+            lspconfig.r_language_server.setup({ capabilities = capabilities })
+            lspconfig.clangd.setup({ capabilities = capabilities })
+            lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
             --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
@@ -108,11 +113,13 @@ M = {
         -- On musl libc based systems you need to add this flag
         -- build = 'RUSTFLAGS="-C target-feature=-crt-static" cargo build --release',
 
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
         opts = {
             keymap = {
-                accept = {"<C-y>"},
-                select_prev = "<C-p>",
-                select_next = "<C-n>",
+                ['<C-y>'] = { 'accept' },
+                ['<C-p>'] = { 'select_next' },
+                ['<C-n>'] = { 'select_next' },
             },
             highlight = {
                 -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -126,6 +133,12 @@ M = {
             -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
             -- adjusts spacing to ensure icons are aligned
             nerd_font_variant = 'normal',
+
+            sources = {
+                completion = {
+                    enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+                },
+            },
 
             -- experimental auto-brackets support
             -- accept = { auto_brackets = { enabled = true } }
