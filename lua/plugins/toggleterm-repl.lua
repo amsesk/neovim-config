@@ -4,7 +4,7 @@ M = {
     dir = plugin_dir,
     lazy = true,
     keys = {
-        { "<C-t>", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
+        { "<leader>ttr", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         -- { "<C-T>", "<cmd>TT:<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         {
             "<leader>ll",
@@ -42,7 +42,7 @@ M = {
         --     "Open list of repls.",
         --     mode = { "n" },
         -- },
-        { "<leader>ee", "?^# %%$<cr>NVn", "Send line to toggle term.", mode = { "n" } },
+        -- { "<leader>ee", "?^# %%$<cr>NVn", "Send line to toggle term.", mode = { "n" } },
         {
             "<leader>tp",
             function()

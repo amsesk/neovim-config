@@ -31,6 +31,7 @@ M = {
         },
         config = function()
             -- Setup language servers.
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 settings = {
@@ -50,7 +51,6 @@ M = {
                 },
             }
 
-            local capabilities = require("blink.cmp").get_lsp_capabilities()
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.bashls.setup({ capabilities = capabilities })
             lspconfig.r_language_server.setup({ capabilities = capabilities })
@@ -64,8 +64,8 @@ M = {
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+            -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+            -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
             -- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
             -- Use LspAttach autocommand to only map the following keys

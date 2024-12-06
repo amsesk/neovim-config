@@ -24,6 +24,9 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+
+vim.keymap.set("n", "<leader>bdd", ":bdelete<cr>")
+
 -- vim.keymap.set("n", "<leader>bn", ":bn<CR>")
 -- vim.keymap.set("n", "<leader>bp", ":bp<CR>")
 
