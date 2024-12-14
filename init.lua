@@ -9,6 +9,7 @@ require("config.settings")
 require("config.filetypes")
 -- require("snippets.python")
 require("autocommands.mini")
+require("autocommands.redirect")
 
 local ok, _ = pcall(vim.cmd.colorscheme, "oldworld")
 

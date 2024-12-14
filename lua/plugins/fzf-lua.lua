@@ -27,6 +27,9 @@ K = {
         { "<leader>pb", "<cmd>FzfLua buffers winopts.preview.hidden=hidden<cr>", desc = "Fuzzy find buffers." },
         { "<leader>pf", "<cmd>FzfLua files<cr>", desc = "Fuzzy find files." },
         { "<leader>pg", "<cmd>FzfLua grep_project<cr>", desc = "Live grep within current project." },
+        { "<leader>pc", "<cmd>FzfLua colorschemes<cr>", desc = "Fuzzy find colorschemes." },
+        { "<leader>pk", "<cmd>FzfLua keymaps<cr>", desc = "Fuzzy find keymaps." },
+        { "<leader>pm", "<cmd>FzfLua marks<cr>", desc = "Fuzzy find marks." },
     },
 }
 
