@@ -16,6 +16,11 @@ lazy.setup({
     spec = {
         { import = "colorschemes" },
         { import = "plugins" },
-    }
+    },
+    {
+        rocks = {
+            hererocks = true,
+        },
+    },
 })
 

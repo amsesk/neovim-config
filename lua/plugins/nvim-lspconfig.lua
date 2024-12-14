@@ -38,18 +38,18 @@ M = {
                     Lua = {
                         diagnostics = {
                             -- Get the language server to recognize the `vim` global
-                            globals = {'vim'},
+                            globals = { "vim" },
                         },
                     },
                 },
             })
-            lspconfig.basedpyright.setup {
+            lspconfig.basedpyright.setup({
                 basedpyright = {
                     -- analysis = {
                     --     typeCheckingMode = "standard",
                     -- },
                 },
-            }
+            })
 
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.bashls.setup({ capabilities = capabilities })
@@ -101,13 +101,25 @@ M = {
         end,
     },
     {
-        'saghen/blink.cmp',
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+        config = function(_, opts)
+            local ls = require("luasnip").setup(opts)
+            require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+            --vim.keymap.set('n', "<C-e>", function() ls.expand() end, {silent = true})
+        end,
+    },
+    {
+        "saghen/blink.cmp",
         lazy = false, -- lazy loading handled internally
         -- optional: provides snippets for the snippet source
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = "L3MON4D3/LuaSnip",
 
         -- use a release tag to download pre-built binaries
-        version = 'v0.*',
+        version = "v0.*",
         -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
         -- build = 'cargo build --release',
         -- On musl libc based systems you need to add this flag
@@ -117,9 +129,9 @@ M = {
         ---@type blink.cmp.Config
         opts = {
             keymap = {
-                ['<C-y>'] = { 'accept' },
-                ['<C-p>'] = { 'select_next' },
-                ['<C-n>'] = { 'select_next' },
+                ["<C-y>"] = { "accept" },
+                ["<C-p>"] = { "select_prev" },
+                ["<C-n>"] = { "select_next" },
             },
             highlight = {
                 -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -130,13 +142,27 @@ M = {
             signature_help = {
                 enabled = true,
             },
+            snippets = {
+                expand = function(snippet)
+                    require("luasnip").lsp_expand(snippet)
+                end,
+                active = function(filter)
+                    if filter and filter.direction then
+                        return require("luasnip").jumpable(filter.direction)
+                    end
+                    return require("luasnip").in_snippet()
+                end,
+                jump = function(direction)
+                    require("luasnip").jump(direction)
+                end,
+            },
             -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
             -- adjusts spacing to ensure icons are aligned
-            nerd_font_variant = 'normal',
-
+            nerd_font_variant = "normal",
             sources = {
                 completion = {
-                    enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+                    enabled_providers = { "lsp", "path", "buffer", "luasnip" },
+                    -- enabled_providers = {},
                 },
             },
 
@@ -145,9 +171,9 @@ M = {
 
             -- experimental signature help support
             -- trigger = { signature_help = { enabled = true } }
-        }
-    }
-    -- { "hrsh7th/cmp-nvim-lsp" },
+        },
+    },
+    -- {  },
     --{'hrsh7th/cmp-nvim-lsp-signature-help'},
     -- {
     --     "hrsh7th/nvim-cmp",
@@ -188,17 +214,6 @@ M = {
     --     end,
     -- },
     -- { "saadparwaiz1/cmp_luasnip" },
-    -- {
-    --     "L3MON4D3/LuaSnip",
-    --     -- follow latest release.
-    --     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    --     -- install jsregexp (optional!).
-    --     build = "make install_jsregexp",
-    --     config = function(_, opts)
-    --         local ls = require("luasnip").setup(opts)
-    --         --vim.keymap.set('n', "<C-e>", function() ls.expand() end, {silent = true})
-    --     end,
-    -- },
 }
 
 return M

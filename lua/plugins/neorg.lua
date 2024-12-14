@@ -1,7 +1,7 @@
 K = {
     "nvim-neorg/neorg",
     -- run = ":Neorg sync-parsers",
-    -- dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "3rd/image.nvim" },
     lazy = false,
     version = "*",
     opts = {
@@ -16,6 +16,17 @@ K = {
                     default_workspace = "work",
                 },
             },
+            ["core.latex.renderer"] = {
+                config = {
+                    conceal = false,
+                    scale = 3,
+                },
+            },
+            ["core.autocommands"] = {},
+            ["core.highlights"] = {},
+            ["core.integrations.treesitter"] = {},
+            ["core.neorgcmd"] = {},
+            ["core.integrations.image"] = {},
         },
     },
     config = true,
