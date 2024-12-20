@@ -4,7 +4,7 @@ M = {
     dir = plugin_dir,
     lazy = true,
     keys = {
-        { "<leader>ttr", "<cmd>ToggleTermFtReplNew<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
+        { "<leader>ttr", "<cmd>ToggleTermFtReplNew<cr>", "Open a new filetype repl.", mode = { "n" } },
         -- { "<C-T>", "<cmd>TT:<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         {
             "<leader>ll",

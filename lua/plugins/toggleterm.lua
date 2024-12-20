@@ -4,7 +4,9 @@ K = {
     version = "*",
     keys = {
         --{ "<leader>tt", "<cmd>ToggleTerm size=20 direction=horizontal<cr>",  "Toggle floating terminal.", mode = {"n"} },
-        { "<C-t>", "<cmd>ToggleTerm height=25 dir=./ direction=float name=floatie<cr>",  "Toggle floating terminal.", mode = {"n"} },
+        { "<C-t>f", "<cmd>ToggleTerm direction=floating<cr>",  "Toggle terminal floating.", mode = {"n"} },
+        { "<C-t>h", "<cmd>ToggleTerm direction=horizontal<cr>",  "Toggle terminal horizontal.", mode = {"n"} },
+        { "<C-t>", "<cmd>ToggleTerm direction=horizontal<cr>",  "Toggle terminal from terminal mode.", mode = {"t"} },
         { "<leader>pt", "<cmd>TermSelect<cr>",  "Open terminal selection ui from toggleterm.", mode = {"n"} },
     },
     opts = {
