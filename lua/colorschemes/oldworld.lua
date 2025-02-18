@@ -3,6 +3,7 @@ M = {
     lazy = false,
     priority = 1000,
     opts = {
+	variant = "cooler",
         styles = {
             keywords = {italic = true}
         },

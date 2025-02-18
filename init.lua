@@ -11,7 +11,7 @@ require("config.filetypes")
 require("autocommands.mini")
 require("autocommands.redirect")
 
-local ok, _ = pcall(vim.cmd.colorscheme, "oldworld")
+local ok, _ = pcall(vim.cmd.colorscheme, "nordic")
 
 vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })

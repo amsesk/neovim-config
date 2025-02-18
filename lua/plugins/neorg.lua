@@ -16,12 +16,12 @@ K = {
                     default_workspace = "work",
                 },
             },
-            ["core.latex.renderer"] = {
-                config = {
-                    conceal = false,
-                    scale = 3,
-                },
-            },
+            -- ["core.latex.renderer"] = {
+            --     config = {
+            --         conceal = false,
+            --         scale = 3,
+            --     },
+            -- },
             ["core.autocommands"] = {},
             ["core.highlights"] = {},
             ["core.integrations.treesitter"] = {},

@@ -55,7 +55,6 @@ M = {
     dependencies = {
         "akinsho/nvim-toggleterm.lua",
         "GCBallesteros/NotebookNavigator.nvim",
-        "nvim-telescope/telescope.nvim",
     },
     config = true,
 }
