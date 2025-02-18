@@ -24,10 +24,7 @@ K = {
     config = function(_, opts)
         require("toggleterm").setup(opts)
         local Terminal  = require('toggleterm.terminal').Terminal
-        local function new_shell_term()
-            Terminal:new({display_name = "zsh"}):open()
-        end
-        vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>lua new_shell_term()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>tn", "<cmd>lua require('toggleterm.terminal').Terminal:new():open()<cr>", {noremap = true, silent = true})
     end,
 }
 

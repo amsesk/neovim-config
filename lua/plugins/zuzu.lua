@@ -1,13 +1,16 @@
 local function zuzu_opts()
+    local floating_toggle_term = function(cmd)
+        vim.cmd("TermExec cmd='" .. cmd .. "' direction=float name='zuzu float'")
+    end
     return {
         build_count = 4,
         display_strategy_count = 4,
         display_strategies = {
-            require("zuzu.display_strategies").split_below,
-            require("zuzu.display_strategies").split_below,
-            require("zuzu.display_strategies").split_below,
-            require("zuzu.display_strategies").split_below,
-       },
+		floating_toggle_term,
+		require("zuzu.display_strategies").background,
+		require("zuzu.display_strategies").command,
+		require("zuzu.display_strategies").split_right,
+	},
    }
    end
 K = {

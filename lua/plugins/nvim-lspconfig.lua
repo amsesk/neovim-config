@@ -1,14 +1,4 @@
 M = {
-    -- {'VonHeikemen/lsp-zero.nvim',
-    --    branch = 'v3.x',
-    --    lazy = true,
-    --    config = false,
-    --init = function()
-    -- Disable automatic setup, we are doing it manually
-    --   vim.g.lsp_zero_extend_cmp = 0
-    --   vim.g.lsp_zero_extend_lspconfig = 0
-    --end,
-    --},
     { "williamboman/mason.nvim", lazy = false, config = true },
     {
         "williamboman/mason-lspconfig.nvim",
@@ -54,7 +44,7 @@ M = {
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.bashls.setup({ capabilities = capabilities })
             lspconfig.r_language_server.setup({ capabilities = capabilities })
-            lspconfig.clangd.setup({ capabilities = capabilities })
+            -- lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
@@ -76,6 +66,9 @@ M = {
                     -- Enable completion triggered by <c-x><c-o>
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
+                    -- Explicitly disable virtual text diagnostics
+                    vim.diagnostic.config({ virtual_text = false })
+
                     -- Buffer local mappings.
                     -- See `:help vim.lsp.*` for documentation on any of the below functions
                     local opts = { buffer = ev.buf }
@@ -84,39 +77,39 @@ M = {
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
                     --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-                    vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-                    vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-                    vim.keymap.set("n", "<space>wl", function()
-                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    end, opts)
-                    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-                    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-                    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+                    -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+                    -- vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+                    -- vim.keymap.set("n", "<space>wl", function()
+                    --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    -- end, opts)
+                    -- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+                    -- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+                    -- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
                     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-                    vim.keymap.set("n", "<space>f", function()
-                        vim.lsp.buf.format({ async = true })
-                    end, opts)
+                    -- vim.keymap.set("n", "<space>f", function()
+                    --     vim.lsp.buf.format({ async = true })
+                    -- end, opts)
                 end,
             })
         end,
     },
-    {
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = "make install_jsregexp",
-        config = function(_, opts)
-            local ls = require("luasnip").setup(opts)
-            require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
-            --vim.keymap.set('n', "<C-e>", function() ls.expand() end, {silent = true})
-        end,
-    },
+    -- {
+    --     "L3MON4D3/LuaSnip",
+    --     -- follow latest release.
+    --     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    --     -- install jsregexp (optional!).
+    --     build = "make install_jsregexp",
+    --     config = function(_, opts)
+    --         local ls = require("luasnip").setup(opts)
+    --         require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+    --         --vim.keymap.set('n', "<C-e>", function() ls.expand() end, {silent = true})
+    --     end,
+    -- },
     {
         "saghen/blink.cmp",
         lazy = false, -- lazy loading handled internally
         -- optional: provides snippets for the snippet source
-        dependencies = "L3MON4D3/LuaSnip",
+        -- dependencies = "L3MON4D3/LuaSnip",
 
         -- use a release tag to download pre-built binaries
         version = "*",
@@ -127,19 +120,20 @@ M = {
             keymap = {
                 preset = "none",
                 ["<C-y>"] = { "accept" },
-                ["<C-p>"] = { "select_prev" },
-                ["<C-n>"] = { "select_next" },
+                ["<C-n>"] = { "select_prev" },
+                ["<C-e>"] = { "select_next" },
             },
             signature = {
                 enabled = true,
             },
-            snippets = { preset = "luasnip" },
+            -- snippets = { preset = "luasnip" },
             appearance = {
                 nerd_font_variant = "mono",
                 use_nvim_cmp_as_default = true,
             },
             sources = {
-                default = { "lsp", "path", "buffer", "snippets" },
+                -- default = { "lsp", "path", "buffer", "snippets" },
+                default = { "lsp", "path", "buffer" },
             },
         },
         opts_extend = {

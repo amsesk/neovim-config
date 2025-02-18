@@ -9,10 +9,10 @@ K = {
         -- resizing splits
         -- these keymaps will also accept a range,
         -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-        -- { '<A-h>', "<cmd>lua require('smart-splits').resize_left()<cr>", mode = {"n"} },
-        -- { '<A-j>', "<cmd>lua require('smart-splits').resize_down()<cr>", mode = {"n"} },
-        -- { '<A-k>', "<cmd>lua require('smart-splits').resize_up()<cr>", mode = {"n"} },
-        -- { '<A-l>', "<cmd>lua require('smart-splits').resize_right()<cr>", mode = {"n"} },
+        { '<A-h>', "<cmd>lua require('smart-splits').resize_left()<cr>", mode = {"n"} },
+        { '<A-j>', "<cmd>lua require('smart-splits').resize_down()<cr>", mode = {"n"} },
+        { '<A-k>', "<cmd>lua require('smart-splits').resize_up()<cr>", mode = {"n"} },
+        { '<A-l>', "<cmd>lua require('smart-splits').resize_right()<cr>", mode = {"n"} },
         -- moving between splits
         { '<C-h>', "<cmd>lua require('smart-splits').move_cursor_left()<cr>", mode = {"n"} },
         { '<C-j>', "<cmd>lua require('smart-splits').move_cursor_down()<cr>", mode = {"n"} },
