@@ -120,8 +120,10 @@ M = {
             keymap = {
                 preset = "none",
                 ["<C-y>"] = { "accept" },
-                ["<C-n>"] = { "select_prev" },
-                ["<C-e>"] = { "select_next" },
+                ["<C-e>"] = { "select_prev" },
+                ["<C-n>"] = { "select_next" },
+                ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+                ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
             },
             signature = {
                 enabled = true,
