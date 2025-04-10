@@ -12,7 +12,7 @@ K = {
       },
       winopts = {
           backdrop=100,
-          height = 0.33,
+          height = 0.75,
           width = 0.95,
       },
   },

@@ -1,3 +1,4 @@
 {
     "Chunk": { "prefix": "ch", "body": "# %% CHUNK: $1 {{{\n\n# }}}" }
+    "Chunk": { "prefix": "fu", "body": "# %% FUNC: $1 {{{\n\n# }}}" }
 }

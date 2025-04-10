@@ -27,6 +27,7 @@ K = {
             ["core.integrations.treesitter"] = {},
             ["core.neorgcmd"] = {},
             ["core.integrations.image"] = {},
+            ["core.ui.calendar"] = {},
         },
     },
     config = true,

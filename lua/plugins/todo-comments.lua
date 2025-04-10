@@ -11,6 +11,10 @@ K = {
                 icon = "󰡱 ",
                 color = "info",
             },
+            NOTE = {
+                icon = "󰡱 ",
+                color = "hint",
+            },
         },
         highlight = {
             multiline = false,
