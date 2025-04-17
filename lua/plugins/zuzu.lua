@@ -7,9 +7,9 @@ local function zuzu_opts()
         display_strategy_count = 4,
         display_strategies = {
 		floating_toggle_term,
+		require("zuzu.display_strategies").split_terminal("horizontal rightbelow", true),
 		require("zuzu.display_strategies").background,
 		require("zuzu.display_strategies").command,
-		require("zuzu.display_strategies").split_right,
 	},
    }
    end

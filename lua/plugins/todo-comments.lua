@@ -7,12 +7,16 @@ K = {
                 icon = " ",
                 color = "hint",
             },
+            DEPRECATED = {
+                icon = " ",
+                color = "warning",
+            },
             FUNC = {
                 icon = "󰡱 ",
                 color = "info",
             },
             NOTE = {
-                icon = "󰡱 ",
+                icon = " ",
                 color = "hint",
             },
         },

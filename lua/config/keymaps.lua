@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>bdd", ":bdelete<cr>")
 -- vim.keymap.set("n", "<leader>bn", ":bn<CR>")
 -- vim.keymap.set("n", "<leader>bp", ":bp<CR>")
 
+-- Layout keybinds
+vim.keymap.set("n", "<leader>lts", ":tab split<CR>")
+vim.keymap.set("n", "<leader>ltn", ":tabn<CR>")
+vim.keymap.set("n", "<leader>lte", ":tabp<CR>")
+
 local numbering = "rel"
 vim.keymap.set("n", "<leader>nn", function()
     if numbering == "abs" then
