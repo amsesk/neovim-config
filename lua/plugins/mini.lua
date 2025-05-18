@@ -109,21 +109,21 @@ K = {
                 suffix_next = "", -- Suffix to search with "next" method
             },
         })
-        require("mini.indentscope").setup()
-        require("mini.git").setup()
-        require("mini.jump").setup({
-            mappings = {
-                repeat_jump = '',
-            },
-            delay = {
-                idle_stop = 2500,
-            },
-        })
+        -- require("mini.indentscope").setup()
+        -- require("mini.git").setup()
+       -- require("mini.jump").setup({
+        --     mappings = {
+        --         repeat_jump = '',
+        --     },
+        --     delay = {
+        --         idle_stop = 2500,
+        --     },
+        -- })
     end,
     keys = {
-        { "<leader>ht", "<cmd>horiz Git status<cr>", "Mini git status" },
-        { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
-        { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
+        -- { "<leader>ht", "<cmd>horiz Git status<cr>", "Mini git status" },
+        -- { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
+        -- { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
         { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
         -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('')<cr>", "Go to next visit." },
         -- { "<C-h>", "<cmd>lua MiniVisits.iterate_paths('backward')<cr>", "Go to last visit." },

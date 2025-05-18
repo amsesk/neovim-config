@@ -58,5 +58,6 @@ M = {
         priority = 1000,
         opts = {},
     },
+    { "WTFox/jellybeans.nvim" },
 }
 return M

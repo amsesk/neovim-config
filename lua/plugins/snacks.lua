@@ -8,6 +8,8 @@ K = {
         dashboard = { enabled = true },
         lazygit = { enabled = true },
         bufdelete = { enabled = true },
+        zen = { enabled = true },
+        dim = { enabled = true },
     },
     config = function(_, opts)
         local snacks = require("snacks")
@@ -48,6 +50,20 @@ K = {
                 require("snacks").bufdelete().other()
             end,
             desc = "Delete all other buffers.",
+        },
+        {
+            "<leader>uzz",
+            function()
+                require("snacks").zen()
+            end,
+            desc = "Toggle zen mode.",
+        },
+        {
+            "<leader>uzo",
+            function()
+                require("snacks").zen.zoom()
+            end,
+            desc = "Toggle zen zoom.",
         },
     },
 }

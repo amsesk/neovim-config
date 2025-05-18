@@ -54,4 +54,3 @@ end)
 -- vim.keymap.set("n", "m", "<NOP>")
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle")
-
