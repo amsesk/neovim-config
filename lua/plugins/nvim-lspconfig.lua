@@ -12,14 +12,13 @@ M = {
         },
     },
     {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = false,
+        "mason-org/mason-lspconfig.nvim",
+        opts = {
+            automatic_enable = false,
+        },
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
             "neovim/nvim-lspconfig",
-        },
-        opts = {
-            ensure_installed = { "lua_ls", "rust_analyzer" },
         },
     },
     {
@@ -49,18 +48,18 @@ M = {
                 },
             })
             lspconfig.r_language_server.setup({
-                capabilites=capabilities,
+                capabilites = capabilities,
                 flags = { debounce_text_changes = 150 },
             })
             -- lspconfig.r_language_server.setup({
-                -- settings = {
-                --     r = {
-                --         lsp = {
-                --             server_capabilities = capabilities
-                --         },
-                --     },
-                -- },
-                -- capabilities = capabilities,
+            -- settings = {
+            --     r = {
+            --         lsp = {
+            --             server_capabilities = capabilities
+            --         },
+            --     },
+            -- },
+            -- capabilities = capabilities,
             --     settings = {
             --         r = {
             --             lsp = {
