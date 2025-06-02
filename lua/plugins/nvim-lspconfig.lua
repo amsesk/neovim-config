@@ -1,18 +1,26 @@
 M = {
-    { "williamboman/mason.nvim", lazy = false, config = true },
+    {
+        "mason-org/mason.nvim",
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
+                },
+            },
+        },
+    },
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
-        config = function()
-            --local lsp_zero = require('lsp-zero')
-            --lsp_zero.extend_lspconfig()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer" },
-                -- handlers = {
-                --   lsp_zero.default_setup,
-                --}
-            })
-        end,
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+        opts = {
+            ensure_installed = { "lua_ls", "rust_analyzer" },
+        },
     },
     {
         "neovim/nvim-lspconfig",
@@ -40,15 +48,43 @@ M = {
                     -- },
                 },
             })
-
+            lspconfig.r_language_server.setup({
+                capabilites=capabilities,
+                flags = { debounce_text_changes = 150 },
+            })
+            -- lspconfig.r_language_server.setup({
+                -- settings = {
+                --     r = {
+                --         lsp = {
+                --             server_capabilities = capabilities
+                --         },
+                --     },
+                -- },
+                -- capabilities = capabilities,
+            --     settings = {
+            --         r = {
+            --             lsp = {
+            --                 log_file = "~/r_languageserver.log",
+            --                 diagnostics = true,
+            --                 max_completions = 300,
+            --                 lint_cache = true,
+            --                 link_file_size_limit = 64000,
+            --                 server_capabilites = {
+            --                     definitionProvider = true,
+            --                     completionProvider = true,
+            --                     completionItemResolve = true,
+            --                 },
+            --             },
+            --         },
+            --     },
+            -- })
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.bashls.setup({ capabilities = capabilities })
-            lspconfig.r_language_server.setup({ capabilities = capabilities })
             -- lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
-            --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
+            --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.t            lspconfig.r_language_server.setup({})oml", "_quarto.yml"),
             -- })
 
             -- Global mappings.
@@ -105,6 +141,17 @@ M = {
     --         --vim.keymap.set('n', "<C-e>", function() ls.expand() end, {silent = true})
     --     end,
     -- },
+    --
+    -- add blink.compat
+    -- {
+    --     "saghen/blink.compat",
+    --     -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+    --     version = "*",
+    --     -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    --     lazy = true,
+    --     -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+    --     opts = {},
+    -- },
     {
         "saghen/blink.cmp",
         lazy = false, -- lazy loading handled internally
@@ -116,14 +163,17 @@ M = {
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
+        -- dependencies = {
+        -- "jalvesaq/cmp-nvim-r"
+        -- },
         opts = {
             keymap = {
                 preset = "none",
                 ["<C-y>"] = { "accept" },
                 ["<C-e>"] = { "select_prev" },
                 ["<C-n>"] = { "select_next" },
-                ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
-                ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+                ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+                ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
             },
             signature = {
                 enabled = true,
@@ -135,57 +185,86 @@ M = {
             },
             sources = {
                 -- default = { "lsp", "path", "buffer", "snippets" },
-                default = { "lsp", "path", "buffer" },
+                default = {
+                    "lsp",
+                    "path",
+                    "buffer",
+                },
+
+                -- providers = {
+                -- create provider
+                -- cmp_nvim_r = {
+                -- IMPORTANT: use the same name as you would for nvim-cmp
+                -- name = "cmp_nvim_r",
+                -- module = "blink.compat.source",
+
+                -- all blink.cmp source config options work as normal:
+                -- score_offset = -3,
+
+                -- this table is passed directly to the proxied completion source
+                -- as the `option` field in nvim-cmp's source config
+                --
+                -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+                -- opts = {
+                --   -- this is an option from cmp-digraphs
+                --   cache_digraphs_on_start = true,
+
+                -- If you'd like to use a `name` that does not exactly match nvim-cmp,
+                -- set `cmp_name` to the name you would use for nvim-cmp, for instance:
+                -- cmp_name = "digraphs"
+                -- then, you can set the source's `name` to whatever you like.
+                -- },
             },
         },
         opts_extend = {
             "sources.default",
-        }
+        },
     },
-    -- {  },
-    --{'hrsh7th/cmp-nvim-lsp-signature-help'},
-    -- {
-    --     "hrsh7th/nvim-cmp",
-    --     -- dependencies = { "jmbuhr/otter.nvim" },
-    --     config = function(_, opts)
-    --         local cmp = require("cmp")
-    --         cmp.setup({
-    --             sources = {
-    --                 { name = "nvim_lsp" },
-    --                 { name = "nvim_lsp_signature_help" },
-    --                 { name = "buffer" },
-    --                 -- { name = "otter" },
-    --                 {
-    --                     name = "path",
-    --                     option = {
-    --                         --get_cwd = function()
-    --                         --end
-    --                     },
-    --                 },
-    --                 { name = "luasnip" },
-    --             },
-    --             -- formatting = cmp_format,
-    --             snippet = {
-    --                 expand = function(args)
-    --                     local ls = prerequire("luasnip")
-    --                     if not ls then
-    --                         return
-    --                     end
-    --                     ls.lsp_expand(args.body)
-    --                 end,
-    --             },
-    --             mapping = {
-    --                 ["<C-n>"] = cmp.mapping.select_next_item(),
-    --                 ["<C-p>"] = cmp.mapping.select_prev_item(),
-    --                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    --             },
-    --         })
-    --     end,
-    -- },
-    -- { "saadparwaiz1/cmp_luasnip" },
 }
-
 return M
+
+-- {  },
+--{'hrsh7th/cmp-nvim-lsp-signature-help'},
+-- {
+--     "hrsh7th/nvim-cmp",
+--     -- dependencies = { "jmbuhr/otter.nvim" },
+--     config = function(_, opts)
+--         local cmp = require("cmp")
+--         cmp.setup({
+--             sources = {
+--                 { name = "nvim_lsp" },
+--                 { name = "nvim_lsp_signature_help" },
+--                 { name = "buffer" },
+--                 -- { name = "otter" },
+--                 {
+--                     name = "path",
+--                     option = {
+--                         --get_cwd = function()
+--                         --end
+--                     },
+--                 },
+--                 { name = "luasnip" },
+--             },
+--             -- formatting = cmp_format,
+--             snippet = {
+--                 expand = function(args)
+--                     local ls = prerequire("luasnip")
+--                     if not ls then
+--                         return
+--                     end
+--                     ls.lsp_expand(args.body)
+--                 end,
+--             },
+--             mapping = {
+--                 ["<C-n>"] = cmp.mapping.select_next_item(),
+--                 ["<C-p>"] = cmp.mapping.select_prev_item(),
+--                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+--             },
+--         })
+--     end,
+-- },
+-- { "saadparwaiz1/cmp_luasnip" },
+-- }
 
 -- Primeagen apparently outdated keybinding config
 --local cmp_select = {behavior = cmp.SelectBehavior.Select}

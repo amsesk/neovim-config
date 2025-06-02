@@ -4,4 +4,4 @@ M = {
    dependencies = { "MunifTanjim/nui.nvim" },
    opts = {},
 }
-return M
+return {}

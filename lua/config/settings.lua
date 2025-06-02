@@ -11,7 +11,7 @@ vim.o.scrolloff = 8
 vim.o.wrap = true
 
 --vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldcolumn = "auto:9"
+-- vim.o.foldcolumn = "auto:9"
 --vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 --vim.o.foldlevelstart = 99
 
@@ -21,6 +21,6 @@ vim.o.foldcolumn = "auto:9"
 -- vim.o.foldenable = true
 
 -- Marker-based folding
-vim.wo.foldmethod = "marker"
+-- vim.wo.foldmethod = "marker"
 
 -- vim.o.guicursor = "n:block-blinkon0,i:ver25-blinkon1"
