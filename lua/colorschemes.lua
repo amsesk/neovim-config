@@ -59,5 +59,19 @@ M = {
         opts = {},
     },
     { "WTFox/jellybeans.nvim" },
+    { "savq/melange-nvim" },
+    { "nyoom-engineering/nyoom.nvim" },
+    { "olimorris/onedarkpro.nvim" },
+    {
+        "ribru17/bamboo.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("bamboo").setup({
+                -- optional configuration here
+            })
+            require("bamboo").load()
+        end,
+    },
 }
 return M

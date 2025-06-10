@@ -9,7 +9,7 @@ local function mini_ai_opts()
     local nn = require("notebook-navigator")
     local opts = {
         custom_textobjects = {
-            l = nn.miniai_spec,
+            n = nn.miniai_spec,
             q = function()
                 local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
                 -- if start_line > 0 then

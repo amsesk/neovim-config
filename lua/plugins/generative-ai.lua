@@ -91,4 +91,4 @@ M = {
         },
     },
 }
-return M
+return {}
