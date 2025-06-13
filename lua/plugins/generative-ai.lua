@@ -1,53 +1,41 @@
 M = {
-    -- {
-    -- 	"robitx/gp.nvim",
-    -- 	opts = {
-    -- 		openai_api_key = os.getenv("OPENAI_API_KEY"),
-    -- 		default_chat_agent = "CodeGPT4o",
-    -- 		default_command_agent = "CodeGPT4o",
-    -- 		chat_user_prefix = ">>",
-    -- 		chat_shortcut_respond = { modes = {"n"}, shortcut = "<C-g><Enter>" },
-    -- 		hooks = {
-    -- 			Document = function(gp, params)
-    -- 				local template = "I have the following function defintion in {{filename}}:\n\n"
-    -- 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
-    -- 				.. "Please write a {{filetype}} docstring for it."
-    -- 				local agent = gp.get_command_agent()
-    -- 				gp.Prompt(params, gp.Target.rewrite, agent, template)
-    -- 			end,
-    -- 		},
-    -- 	},
-    -- 	config = function(_, opts)
-    -- 		require("gp").setup(opts)
-    -- 		-- vim.cmd("GpAgent CodeGPT4o")
-    -- 	end,
-    -- 	lazy = false,
-    -- 	keys = {
-    -- 		{"<C-g>t", ":GpChatToggle popup<cr>", mode = "n", desc = "Toggle the chat window."},
-    -- 		{"<C-g>f", ":GpChatFinder<cr>", mode = "n", desc = "Open chat finder window."},
-    -- 		{"<C-g>n", ":GpChatNew<cr>", mode = "n", desc = "Open chat finder window."},
-    -- 		{"<C-g>dd", ":GpDocument<cr>", mode = "n", desc = "Write a docstring for the selected function signature."},
-    --
-    -- 	}
-    -- },
-
     {
         "yetone/avante.nvim",
         event = "VeryLazy",
         version = false, -- Never set this value to "*"! Never!
         opts = {
-            -- add any opts here
-            -- for example
-            provider = "openai",
-            openai = {
-                endpoint = "https://api.openai.com/v1",
-                model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-                timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-                temperature = 0,
-                max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-                --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+            sidebar = {
+                close = { "q" },
+            },
+            windows = {
+                ask = {
+                    floating = false,
+                },
+            },
+            provider = "openrouter",
+            providers = {
+                openrouter = {
+                    __inherited_from = "openai",
+                    endpoint = "https://openrouter.ai/api/v1",
+                    api_key_name = "OPENROUTER_API_KEY",
+                    model = "anthropic/claude-3.7-sonnet",
+                    extra_request_body = {},
+                },
+                openai = {
+                    endpoint = "https://api.openai.com/v1",
+                    model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+                    extra_request_body = {
+                        -- timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+                        -- temperature = 0.75,
+                        -- max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+                        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+                    },
+                },
             },
         },
+        -- config = function(_, opts)
+        --     require("avante").setup(opts)
+        -- end,
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",
         -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -90,5 +78,36 @@ M = {
             },
         },
     },
+    -- {
+    -- 	"robitx/gp.nvim",
+    -- 	opts = {
+    -- 		openai_api_key = os.getenv("OPENAI_API_KEY"),
+    -- 		default_chat_agent = "CodeGPT4o",
+    -- 		default_command_agent = "CodeGPT4o",
+    -- 		chat_user_prefix = ">>",
+    -- 		chat_shortcut_respond = { modes = {"n"}, shortcut = "<C-g><Enter>" },
+    -- 		hooks = {
+    -- 			Document = function(gp, params)
+    -- 				local template = "I have the following function defintion in {{filename}}:\n\n"
+    -- 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+    -- 				.. "Please write a {{filetype}} docstring for it."
+    -- 				local agent = gp.get_command_agent()
+    -- 				gp.Prompt(params, gp.Target.rewrite, agent, template)
+    -- 			end,
+    -- 		},
+    -- 	},
+    -- 	config = function(_, opts)
+    -- 		require("gp").setup(opts)
+    -- 		-- vim.cmd("GpAgent CodeGPT4o")
+    -- 	end,
+    -- 	lazy = false,
+    -- 	keys = {
+    -- 		{"<C-g>t", ":GpChatToggle popup<cr>", mode = "n", desc = "Toggle the chat window."},
+    -- 		{"<C-g>f", ":GpChatFinder<cr>", mode = "n", desc = "Open chat finder window."},
+    -- 		{"<C-g>n", ":GpChatNew<cr>", mode = "n", desc = "Open chat finder window."},
+    -- 		{"<C-g>dd", ":GpDocument<cr>", mode = "n", desc = "Write a docstring for the selected function signature."},
+    --
+    -- 	}
+    -- },
 }
-return {}
+return M

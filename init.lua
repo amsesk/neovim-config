@@ -11,9 +11,9 @@ require("config.filetypes")
 require("autocommands.mini")
 require("autocommands.redirect")
 
-vim.g.sonokai_enable_italic = true
-vim.g.sonokai_style = "andromeda"
-local ok, _ = pcall(vim.cmd.colorscheme, "sonokai")
+-- vim.g.sonokai_enable_italic = true
+-- vim.g.sonokai_style = "andromeda"
+local ok, _ = pcall(vim.cmd.colorscheme, "jellybeans")
 
 vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
