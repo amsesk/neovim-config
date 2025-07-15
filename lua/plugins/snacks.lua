@@ -10,6 +10,7 @@ K = {
         bufdelete = { enabled = true },
         zen = { enabled = true },
         dim = { enabled = true },
+        win = { enabled = true },
     },
     config = function(_, opts)
         local snacks = require("snacks")

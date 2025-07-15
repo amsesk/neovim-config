@@ -12,13 +12,20 @@ M = {
                     floating = false,
                 },
             },
-            provider = "openrouter",
+            provider = "openrouter_claude37",
             providers = {
-                openrouter = {
+                openrouter_claude37 = {
                     __inherited_from = "openai",
                     endpoint = "https://openrouter.ai/api/v1",
                     api_key_name = "OPENROUTER_API_KEY",
-                    model = "anthropic/claude-3.7-sonnet",
+                    model = "anthropic/claude-3.7-sonnet-20250219",
+                    extra_request_body = {},
+                },
+                openrouter_gpt41 = {
+                    __inherited_from = "openai",
+                    endpoint = "https://openrouter.ai/api/v1",
+                    api_key_name = "OPENROUTER_API_KEY",
+                    model = "openai/gpt-4.1",
                     extra_request_body = {},
                 },
                 openai = {

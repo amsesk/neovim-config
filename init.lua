@@ -1,4 +1,5 @@
 vim.api.nvim_set_var("mapleader", " ")
+vim.api.nvim_set_var("maplocalleader", ",")
 
 -- vim.keymap.set("n", "<leader>q", "q", {noremap = false})
 -- vim.keymap.set("n", "q", "<NOP>")

@@ -1,0 +1,3 @@
+{
+    "Decorator": { "prefix": "de", "body": "def $1(func):\n\tdef wrapper(*args, **kwargs):\n\t\tres = func(*args, **kwargs)\n\t\treturn res\n\treturn wrapper" },
+}

@@ -10,6 +10,7 @@ M = {
         -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
         vim.keymap.set("n", "zR", require("ufo").openAllFolds)
         vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+        vim.keymap.set("n", "zP", require("ufo").peekFoldedLinesUnderCursor)
 
         -- Option 3: treesitter as a main provider instead
         -- (Note: the `nvim-treesitter` plugin is *not* needed.)
@@ -18,9 +19,14 @@ M = {
         require("ufo").setup(opts)
     end,
     opts = function()
+        local ftProvider = {
+            r = {"marker", "indent"},
+            python = {"treesitter", "indent"},
+        }
         return {
             provider_selector = function(bufnr, filetype, buftype)
-                return { "treesitter", "indent" }
+                return ftProvider[filetype] or { "treesitter", "marker" }
+                -- return { "treesitter", "indent" }
             end,
         }
     end,

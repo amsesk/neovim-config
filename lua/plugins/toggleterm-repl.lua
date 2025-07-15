@@ -2,9 +2,10 @@ local plugin_dir = os.getenv("HOME") .. "/dev/toggleterm-repl.nvim"
 M = {
     -- "amsesk/toggleterm-repl.nvim",
     dir = plugin_dir,
-    lazy = true,
+    lazy = false,
     keys = {
-        { "<leader>ttr", "<cmd>ToggleTermFtReplNew<cr>", "Open a new filetype repl.", mode = { "n" } },
+        { "<leader>ttr", "<cmd>TTFtReplNew<cr>", "Open a new filetype repl.", mode = { "n" } },
+        { "<leader>ttt", "<cmd>TTNewRepl default<cr>", "Open a new default terminal.", mode = { "n" } },
         -- { "<C-T>", "<cmd>TT:<cr>", "Toggle terminal from terminal mode.", mode = { "t", "n" } },
         {
             "<leader>ll",

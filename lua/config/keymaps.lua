@@ -1,4 +1,4 @@
-vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set("x", "<localleader>p", '"_dP')
 
 vim.keymap.set("n", "<leader>c", '"_c')
 vim.keymap.set("n", "<leader>d", '"_d')
@@ -54,3 +54,20 @@ end)
 -- vim.keymap.set("n", "m", "<NOP>")
 
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle")
+
+-- tmux repl stuff
+vim.keymap.set("n", "<leader>ttm", function()
+    Snacks = require("snacks")
+    local split_window = vim.fn.system("tmux split-window -v -l 20 -P")
+    local new_pane_id = vim.split(split_window, "[.]")[2]
+end)
+
+vim.keymap.set("n", "<leader>tlp", function()
+    Snacks = require("snacks")
+    local tmux_panes = vim.fn.system("tmux list-panes")
+    Snacks.win({
+        text = tmux_panes,
+        width = 0.75,
+        height = 0.5,
+    })
+end)

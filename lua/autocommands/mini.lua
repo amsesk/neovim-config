@@ -9,7 +9,7 @@ local bookmarks = {
     },
     {
         id = "t",
-        path = os.getenv("HOME") .. "/super1/tcsl",
+        path = os.getenv("HOME") .. "/super2/tcsl",
     },
     {
         id = "b",
