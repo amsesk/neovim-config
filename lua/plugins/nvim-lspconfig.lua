@@ -51,6 +51,7 @@ M = {
                 capabilites = capabilities,
                 flags = { debounce_text_changes = 150 },
             })
+            lspconfig.julials.setup({})
             -- lspconfig.r_language_server.setup({
             -- settings = {
             --     r = {
