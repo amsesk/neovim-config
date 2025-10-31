@@ -84,6 +84,7 @@ K = {
         -- require("mini.pick").setup()
         -- require("mini.diff").setup()
         require("mini.statusline").setup()
+        require("mini.sessions").setup()
         -- statusline_setup()
         require("mini.animate").setup({
             cursor = {
@@ -125,6 +126,8 @@ K = {
         -- { "<leader>hC", "<cmd>horiz Git commit<cr>", "Mini git commit." },
         -- { "<leader>hl", "<cmd>horiz Git log<cr>", "Mini git commit." },
         { "<leader>pv", "<cmd>lua MiniFiles.open()<cr>", "Open mini-files." },
+        { "<leader>msr", "<cmd>lua MiniSessions.read()<cr>", "Read MiniSessions session." },
+        { "<leader>msw", "<cmd>lua MiniSessions.write()<cr>", "Write MiniSessions session." },
         -- { "<C-i>", "<cmd>lua MiniVisits.iterate_paths('')<cr>", "Go to next visit." },
         -- { "<C-h>", "<cmd>lua MiniVisits.iterate_paths('backward')<cr>", "Go to last visit." },
         -- { "<leader>hh", "<cmd>lua MiniPick.start({ source = { items = MiniVisits.list_paths() } })<cr>", "Go to last visit." },

@@ -73,5 +73,17 @@ M = {
             require("bamboo").load()
         end,
     },
+    {
+        "darianmorat/gruvdark.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        "jpwol/thorn.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
 }
 return M
