@@ -18,6 +18,7 @@ K = {
             lua = { "stylua_with_config" },
             python = { "isort", "black" }, -- pip install isort, pip install git+https://github.com/psf/black
             r = { "stylerShell" },
+            julia = { "runic" },
         },
         -- format_on_save = {
         --     -- These options will be passed to conform.format()
