@@ -1,3 +1,4 @@
 {
     "Decorator": { "prefix": "de", "body": "def $1(func):\n\tdef wrapper(*args, **kwargs):\n\t\tres = func(*args, **kwargs)\n\t\treturn res\n\treturn wrapper" },
+    "Argparser": { "prefix": "argp", "body": "import argparse\n\nparser = argparse.ArgumentParser()\nparser.add_argument('-', '--', action='store', required=True, help='')\nargs=parser.parse_args()\n" }
 }

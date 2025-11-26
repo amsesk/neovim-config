@@ -29,29 +29,20 @@ M = {
         config = function()
             -- Setup language servers.
             local capabilities = require("blink.cmp").get_lsp_capabilities()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            -- Get the language server to recognize the `vim` global
-                            globals = { "vim" },
-                        },
-                    },
-                },
-            })
-            lspconfig.basedpyright.setup({
-                basedpyright = {
-                    -- analysis = {
-                    --     typeCheckingMode = "standard",
-                    -- },
-                },
-            })
-            lspconfig.r_language_server.setup({
-                capabilites = capabilities,
-                flags = { debounce_text_changes = 150 },
-            })
-            lspconfig.julials.setup({})
+            -- local lspconfig = require("lspconfig")
+            -- vim.lsp.config("lua_ls", {})
+            -- lspconfig.basedpyright.setup({
+            --     basedpyright = {
+            --         --     typeCheckingMode = "standard",
+            --         -- },
+            --     },
+            --     
+            -- })
+            -- lspconfig.r_language_server.setup({
+            --     capabilites = capabilities,
+            --     flags = { debounce_text_changes = 150 },
+            -- })
+            -- lspconfig.julials.setup({})
             -- lspconfig.r_language_server.setup({
             -- settings = {
             --     r = {
@@ -78,10 +69,9 @@ M = {
             --         },
             --     },
             -- })
-            lspconfig.lua_ls.setup({ capabilities = capabilities })
-            lspconfig.bashls.setup({ capabilities = capabilities })
+            -- lspconfig.bashls.setup({ capabilities = capabilities })
             -- lspconfig.clangd.setup({ capabilities = capabilities })
-            lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+            -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- lspconfig.marksman.setup({
             --     filetypes = { "markdown", "quarto" },
             --     root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.t            lspconfig.r_language_server.setup({})oml", "_quarto.yml"),
@@ -222,64 +212,3 @@ M = {
     },
 }
 return M
-
--- {  },
---{'hrsh7th/cmp-nvim-lsp-signature-help'},
--- {
---     "hrsh7th/nvim-cmp",
---     -- dependencies = { "jmbuhr/otter.nvim" },
---     config = function(_, opts)
---         local cmp = require("cmp")
---         cmp.setup({
---             sources = {
---                 { name = "nvim_lsp" },
---                 { name = "nvim_lsp_signature_help" },
---                 { name = "buffer" },
---                 -- { name = "otter" },
---                 {
---                     name = "path",
---                     option = {
---                         --get_cwd = function()
---                         --end
---                     },
---                 },
---                 { name = "luasnip" },
---             },
---             -- formatting = cmp_format,
---             snippet = {
---                 expand = function(args)
---                     local ls = prerequire("luasnip")
---                     if not ls then
---                         return
---                     end
---                     ls.lsp_expand(args.body)
---                 end,
---             },
---             mapping = {
---                 ["<C-n>"] = cmp.mapping.select_next_item(),
---                 ["<C-p>"] = cmp.mapping.select_prev_item(),
---                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
---             },
---         })
---     end,
--- },
--- { "saadparwaiz1/cmp_luasnip" },
--- }
-
--- Primeagen apparently outdated keybinding config
---local cmp_select = {behavior = cmp.SelectBehavior.Select}
---local cmp_mappings = lsp.defaults.cmp_mappings({
---    ["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
---    ["<C-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
---    ["<CR>"] = cmp.mapping.confirm({select=true}),
---    ["<C-Space>"] = cmp.mapping.complete(),
---})
-
---local cmp = require("cmp")
---cmp.setup({
---  mapping = cmp.mapping.preset.insert({
---      ["<Tab>"] = cmp.mapping.select_next_item({behavior = "select"}),
---      ["<C-Tab>"] = cmp.mapping.select_prev_item({behavior = "select"}),
---      ['<CR>'] = cmp.mapping.confirm({select = true}),
---  })
---})

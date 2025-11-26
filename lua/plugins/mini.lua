@@ -11,7 +11,9 @@ local function mini_ai_opts()
         custom_textobjects = {
             n = nn.miniai_spec,
             q = function()
-                local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
+                -- local start_line = vim.fn.search("^```{\\a\\+}\\s*$", "bcnW") + 1
+                local start_line = vim.fn.search("^```{.\\+}\\s*$", "bcnW") + 1
+                -- local start_line = vim.fn.search("^```", "bcnW") + 1
                 -- if start_line > 0 then
                 -- else
                 --     local start_line = vim.fn.search("^```{\\a\\+}", "nW") + 1
