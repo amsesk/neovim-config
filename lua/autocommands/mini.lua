@@ -8,12 +8,16 @@ local bookmarks = {
         path = os.getenv("HOME") .. "/dev/geomx",
     },
     {
+        id = "s",
+        path = "/scratch"
+    },
+    {
         id = "t",
         path = os.getenv("HOME") .. "/super2/tcsl",
     },
     {
         id = "b",
-        path = os.getenv("HOME") .. "/super1/tcsl/breastvax_human",
+        path = os.getenv("HOME") .. "/super2/tcsl/breastvax_mouse",
     },
 }
 

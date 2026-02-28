@@ -1,5 +1,3 @@
-vim.keymap.set("x", "<localleader>p", '"_dP')
-
 vim.keymap.set("n", "<leader>c", '"_c')
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
