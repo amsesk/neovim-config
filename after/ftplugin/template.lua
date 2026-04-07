@@ -9,4 +9,3 @@ else
     vim.notify("Opened a template file, but unable to resolve extension: " .. filename)
 
 end
-
