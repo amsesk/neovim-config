@@ -9,6 +9,11 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 --     pattern = { [".*[.]tmpl$"] = "template" },
 -- })
 
+-- vim.pack helper functions
+gh = function(repo) 
+	return "http://www.github.com/" .. repo .. ".git" 
+end
+
 -- vim.o settings
 vim.o.number = false
 vim.o.relativenumber = true

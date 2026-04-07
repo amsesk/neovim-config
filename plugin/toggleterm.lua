@@ -1,5 +1,6 @@
 vim.pack.add({
-    "https://www.github.com/akinsho/toggleterm.nvim",
+    gh("akinsho/toggleterm.nvim"),
+    gh("GCBallesteros/NotebookNavigator.nvim"),
 })
 
 require("toggleterm").setup({
@@ -17,17 +18,23 @@ require("toggleterm").setup({
 
 local Terminal = require("toggleterm.terminal").Terminal
 local ToggleTerm = require("toggleterm")
+local nn = require("notebook-navigator")
 
 local active_repl = 1
 
 vim.keymap.set("n", "<leader>tsa", function()
-    local i = tonumber(vim.fn.getcharstr())
-    active_repl=i
+    local i = tonumber(vim.fn.input("Set active terminal to: "))
+    active_term= i or active_term
 end)
 
-vim.keymap.set("n", "<leader>tpa", function()
-    print("Active: " .. vim.inspect(active_repl))
+vim.keymap.set("n", "<leader>tga", function()
+    print("Active: " .. vim.inspect(active_term))
 end)
 
 vim.keymap.set("n", "<leader>tn", function() Terminal:new():open() end)
-vim.keymap.set("n", "<leader>ll", function() ToggleTerm.send_lines_to_terminal("single_line", false, { args = active_repl }) end)
+vim.keymap.set("n", "<leader>tsl", function() ToggleTerm.send_lines_to_terminal("single_line", false, { args = active_term}) end)
+vim.keymap.set("v", "<leader>tsl", function() ToggleTerm.send_lines_to_terminal("visual_selection", false, { args = active_term}) end)
+vim.keymap.set("n", "<leader>tsc", function() 
+    nn.run_and_move({id=active_term, trim_spaces=false})
+end)
+

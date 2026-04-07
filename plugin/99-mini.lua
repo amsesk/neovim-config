@@ -1,5 +1,5 @@
 vim.pack.add({
-    "http://www.github.com/echasnovski/mini.nvim"
+    gh("echasnovski/mini.nvim")
 })
 
 require("mini.ai").setup()
