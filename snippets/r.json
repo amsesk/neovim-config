@@ -1,4 +1,8 @@
 {
-    "Chunk": { "prefix": "ch", "body": "# %% CHUNK: $1 {{{\n\n# }}}" }
-    "Chunk": { "prefix": "fu", "body": "# %% FUNC: $1 {{{\n\n# }}}" }
+    "Chunk": { "prefix": "ch", "body": "# %% CHUNK: $1 {{{\n\n# }}}" },
+    "Function": { "prefix": "fu", "body": "# %% FUNC: $1 {{{\n\n# }}}" },
+    "OptionParser": { 
+        "prefix": "opts", 
+        "body": "opt_parser = OptionParser(\n\toption_list=list(\n\t\tmake_option(c(\"-\", \"--\"), type=\"\", help=\"\")\n\t)\n\nopts = parse_arguments(opt_parser)"
+    }
 }

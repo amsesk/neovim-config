@@ -67,7 +67,7 @@ K = {
             },
             mappings = {
                 -- Expand snippet at cursor position. Created globally in Insert mode.
-                expand = '<C-j>',
+                expand = '<C-p>',
 
                 -- Interact with default `expand.insert` session.
                 -- Created for the duration of active session(s)
