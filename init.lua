@@ -14,6 +14,10 @@ gh = function(repo)
 	return "http://www.github.com/" .. repo .. ".git" 
 end
 
+cb = function(repo) 
+	return "http://www.codeberg.org/" .. repo .. ".git"
+end
+
 -- vim.o settings
 vim.o.number = false
 vim.o.relativenumber = true
@@ -49,3 +53,5 @@ vim.keymap.set("n", "<leader>nn", function()
         numbering = "abs"
     end
 end)
+
+

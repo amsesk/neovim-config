@@ -1,7 +1,19 @@
 vim.pack.add({
-    'https://www.github.com/mrjones2014/smart-splits.nvim',
+    cb("andyg/leap.nvim"),
+    gh("tpope/vim-repeat"),
+    gh("mrjones2014/smart-splits.nvim"),
 })
 
+leap = require("leap").setup({})
+
+-- vim.keymap.set({"n", "x", "o"}, "s", function()
+--     require("leap").leap({target_windows={vim.api.nvim_get_current_win()}})
+-- end)
+vim.keymap.set({"n", "x", "o"}, "s", "<Plug>(leap)")
+vim.keymap.set({"n"}, "S", "<Plug>(leap-from-window)")
+
+
+-- Smart splits
 require("smart-splits").setup({
         default_amount = 5,
     }
