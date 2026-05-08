@@ -4,6 +4,10 @@
       "rev": "20cb6f72939194e32eb3060578b445e5f2e7ae8b",
       "src": "http://www.github.com/GCBallesteros/NotebookNavigator.nvim.git"
     },
+    "R.nvim": {
+      "rev": "cd64fd18ceab37f64936b52264c8aaf791005144",
+      "src": "http://www.github.com/R-nvim/R.nvim.git"
+    },
     "arrow.nvim": {
       "rev": "6e0f726f55f99332dd726a53effd6813786b6d49",
       "src": "http://www.github.com/otavioschwanck/arrow.nvim.git"

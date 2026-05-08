@@ -20,7 +20,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local ToggleTerm = require("toggleterm")
 local nn = require("notebook-navigator")
 
-local active_repl = 1
+local active_term = 1
 
 vim.keymap.set("n", "<leader>tsa", function()
     local i = tonumber(vim.fn.input("Set active terminal to: "))
@@ -32,9 +32,11 @@ vim.keymap.set("n", "<leader>tga", function()
 end)
 
 vim.keymap.set("n", "<leader>tn", function() Terminal:new():open() end)
-vim.keymap.set("n", "<leader>tsl", function() ToggleTerm.send_lines_to_terminal("single_line", false, { args = active_term}) end)
-vim.keymap.set("v", "<leader>tsl", function() ToggleTerm.send_lines_to_terminal("visual_selection", false, { args = active_term}) end)
-vim.keymap.set("n", "<leader>tsc", function() 
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("n", "<leader>ts", "<cmd>TermSelect<cr>")
+vim.keymap.set("n", "<leader>tl", function() ToggleTerm.send_lines_to_terminal("single_line", false, { args = active_term}) end)
+vim.keymap.set("v", "<leader>tl", function() ToggleTerm.send_lines_to_terminal("visual_selection", false, { args = active_term}) end)
+vim.keymap.set("n", "<leader>tc", function() 
     nn.run_and_move({id=active_term, trim_spaces=false})
 end)
 
