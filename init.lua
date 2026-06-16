@@ -53,5 +53,3 @@ vim.keymap.set("n", "<leader>nn", function()
         numbering = "abs"
     end
 end)
-
-

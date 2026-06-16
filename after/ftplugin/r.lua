@@ -2,5 +2,6 @@ vim.opt_local.expandtab = true
 vim.opt_local.softtabstop = 2
 vim.opt_local.shiftwidth = 2
 
-vim.keymap.set("n", "<localleader>rf", "<cmd>RFormat<cr>")
-vim.keymap.set("n", "<localleader>rs", "<Plug>RStart")
+-- native r ftplugin options
+vim.g.r_indent_align_args = 0
+vim.g.r_indent_argument = 1
