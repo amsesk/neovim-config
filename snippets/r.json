@@ -1,4 +1,5 @@
 {
-    "Chunk": { "prefix": "ch", "body": "# %% CHUNK: $1 {{{\n\n# }}}" }
-    "Chunk": { "prefix": "fu", "body": "# %% FUNC: $1 {{{\n\n# }}}" }
+    "Chunk": { "prefix": "ch", "body": "# %% CHUNK: $1 {{{\n\n# }}}" },
+    "Function": { "prefix": "fu", "body": "# %% FUNC: $1 {{{\n\n# }}}" },
+    "Folded_chunk": { "prefix": "fc", "body": "# %% $1 \n# {{{\n\n# }}}" }
 }

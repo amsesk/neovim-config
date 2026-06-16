@@ -16,6 +16,10 @@ require("mini.surround").setup({
         add = "ys",
         delete = "ds",
         replace = "cr",
+        highlight = "",
+        replace = "",
+        find = "",
+        find_left = "",
     }
 })
 local gen_loader = require("mini.snippets").gen_loader
