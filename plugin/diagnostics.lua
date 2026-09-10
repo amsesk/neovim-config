@@ -12,4 +12,6 @@ require("tiny-inline-diagnostic").setup({
 
 vim.diagnostic.config({ virtual_text = false })
 
+vim.cmd("TinyInlineDiag disable")
+
 vim.keymap.set("n", "<leader>dt", "<cmd>TinyInlineDiag toggle<cr>")
