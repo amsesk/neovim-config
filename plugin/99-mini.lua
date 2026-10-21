@@ -1,8 +1,15 @@
 vim.pack.add({
     gh("echasnovski/mini.nvim"),
+    gh("akinsho/toggleterm.nvim"),
+    gh("GCBallesteros/NotebookNavigator.nvim"),
 })
 
-require("mini.ai").setup()
+require("mini.ai").setup({
+    custom_textobjects = {
+        h = require("notebook-navigator").miniai_spec,
+        x = {"# %%"},
+    },
+})
 require("mini.files").setup({
     mappings = {
         go_in = "<cr>",

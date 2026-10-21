@@ -18,6 +18,9 @@ require("toggleterm").setup({
 
 local Terminal = require("toggleterm.terminal").Terminal
 local ToggleTerm = require("toggleterm")
+require("notebook-navigator").setup({
+    -- repl_provider="toggleterm",
+})
 local nn = require("notebook-navigator")
 
 local active_term = 1

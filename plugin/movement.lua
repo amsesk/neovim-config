@@ -2,6 +2,7 @@ vim.pack.add({
     cb("andyg/leap.nvim"),
     gh("tpope/vim-repeat"),
     gh("mrjones2014/smart-splits.nvim"),
+    gh("smart-splits-nvim/backend-tmux"),
 })
 
 leap = require("leap").setup({})
@@ -14,8 +15,14 @@ vim.keymap.set({"n"}, "S", "<Plug>(leap-from-window)")
 
 
 -- Smart splits
+require("smart-splits-backend-tmux")
 require("smart-splits").setup({
-        default_amount = 5,
+        resize = {
+            amount = 5,
+        },
+        mux = {
+            backend = "smart-splits-backend-tmux",
+        },
     }
 )
 

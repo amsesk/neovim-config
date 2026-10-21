@@ -3,7 +3,7 @@ vim.api.nvim_set_var("maplocalleader", ",")
 
 -- generic keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>r", "<cmd>restart<cr>")
+vim.keymap.set("n", "<leader>R", "<cmd>restart<cr>")
 
 --filetypes
 -- vim.filetype.add({
