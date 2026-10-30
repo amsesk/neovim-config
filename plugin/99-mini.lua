@@ -7,18 +7,22 @@ vim.pack.add({
 require("mini.ai").setup({
     custom_textobjects = {
         h = require("notebook-navigator").miniai_spec,
-        x = {"# %%"},
+        x = { "# %%" },
     },
 })
-require("mini.files").setup({
-    mappings = {
-        go_in = "<cr>",
-        go_out = "-",
-        mark_goto = "`",
-    },
-})
+
+if not vim.g.vscode then
+    require("mini.files").setup({
+        mappings = {
+            go_in = "<cr>",
+            go_out = "-",
+            mark_goto = "`",
+        },
+    })
+    require("mini.indentscope").setup()
+end
+
 require("mini.icons").setup()
-require("mini.indentscope").setup()
 require("mini.surround").setup({
     mappings = {
         add = "ys",
@@ -47,15 +51,15 @@ require("mini.snippets").setup({
 vim.keymap.set("n", "<leader>pv", "<cmd>lua MiniFiles.open()<cr>")
 
 -- Bookmarks
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'MiniFilesExplorerOpen',
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesExplorerOpen",
     callback = function()
-        MiniFiles.set_bookmark('d', '~/dev', 'dev')
-        MiniFiles.set_bookmark('h', '~', 'home')
-        MiniFiles.set_bookmark('p', '~/dev/pmbi', 'pmbi')
-        MiniFiles.set_bookmark('g', '~/dev/geomx', 'geomx')
-        MiniFiles.set_bookmark('1', '~/super1', 'super1')
-        MiniFiles.set_bookmark('2', '~/super2', 'super2')
+        MiniFiles.set_bookmark("d", "~/dev", "dev")
+        MiniFiles.set_bookmark("h", "~", "home")
+        MiniFiles.set_bookmark("p", "~/dev/pmbi", "pmbi")
+        MiniFiles.set_bookmark("g", "~/dev/geomx", "geomx")
+        MiniFiles.set_bookmark("1", "~/super1", "super1")
+        MiniFiles.set_bookmark("2", "~/super2", "super2")
         -- set_mark('w', vim.fn.getcwd, 'Working directory') -- callable
         -- set_mark('~', '~', 'Home directory')
     end,

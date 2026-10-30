@@ -3,7 +3,11 @@ vim.api.nvim_set_var("maplocalleader", ",")
 
 -- generic keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>R", "<cmd>restart<cr>")
+
+-- generic keymaps to disable if vscode-neovim is true
+if not vim.g.vscode then
+    vim.keymap.set("n", "<leader>R", "<cmd>restart<cr>")
+end
 
 --filetypes
 -- vim.filetype.add({
@@ -11,12 +15,12 @@ vim.keymap.set("n", "<leader>R", "<cmd>restart<cr>")
 -- })
 
 -- vim.pack helper functions
-gh = function(repo) 
-	return "http://www.github.com/" .. repo .. ".git" 
+gh = function(repo)
+    return "http://www.github.com/" .. repo .. ".git"
 end
 
-cb = function(repo) 
-	return "http://www.codeberg.org/" .. repo .. ".git"
+cb = function(repo)
+    return "http://www.codeberg.org/" .. repo .. ".git"
 end
 
 -- everforest presets
@@ -36,11 +40,13 @@ vim.o.scrolloff = 8
 vim.o.wrap = true
 
 -- load lsp files
-local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp"
-for _, file in ipairs(vim.fn.readdir(lsp_path)) do
-    if file:match("%.lua$") then
-        local module_name = "lsp." .. file:gsub("%.lua", "")
-        require(module_name)
+if not vim.g.vscode then
+    local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp"
+    for _, file in ipairs(vim.fn.readdir(lsp_path)) do
+        if file:match("%.lua$") then
+            local module_name = "lsp." .. file:gsub("%.lua", "")
+            require(module_name)
+        end
     end
 end
 
