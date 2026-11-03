@@ -1,3 +1,0 @@
-{
-    "require": { "prefix": "req", "body": "require (\"$1\")" }
-}
