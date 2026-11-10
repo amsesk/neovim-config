@@ -19,8 +19,12 @@ cb = function(repo)
 	return "http://www.codeberg.org/" .. repo .. ".git"
 end
 
+local vscode = require("vscode")
+vim.keymap.set("n", "<leader>tc", function() vscode.action("positron.runCurrentAdvance") end)
+
+
 -- vim.o settings
--- vim.o.number = false
+-- vim.o.number = true
 -- vim.o.relativenumber = true
 -- vim.o.softtabstop = 4
 -- vim.o.expandtab = true
