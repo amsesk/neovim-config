@@ -20,7 +20,15 @@ cb = function(repo)
 end
 
 local vscode = require("vscode")
+-- vim.keymap.set("n", "<leader>ga", "<cmd>lua require('vscode').action('editor.action.formatDocument')<cr>")
+vim.keymap.set("n", "<leader>gf", function() vscode.action("editor.action.formatDocument") end)
+vim.keymap.set("n", "<leader>tl", function() vscode.action("workbench.action.positronConsole.executeCode") end)
+vim.keymap.set("n", "<leader>ts", function() vscode.action("positronNotebook.cell.executeSelection") end)
 vim.keymap.set("n", "<leader>tc", function() vscode.action("positron.runCurrentAdvance") end)
+
+-- vim.keymap.set("n", "<leader>ta", function() vscode.action("notebook.cell.executeAndSelectBelow") end)
+-- vim.keymap.set("n", "<leader>tb", function() vscode.action("interactive.execute") end)
+-- vim.keymap.set("n", "<leader>tc", function() vscode.action("workbench.action.positronConsole.findNext.fromInput") end)
 
 
 -- vim.o settings
